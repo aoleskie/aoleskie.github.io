@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writing · Austin Oleskie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="shell">
+    <nav class="top">
+      <div class="mark"><a href="../index.html"><span class="dot"></span>oleskie<em>·</em>lab</a></div>
+      <ul>
+        <li><a href="../index.html">index</a></li>
+        <li><a href="../projects.html">projects</a></li>
+        <li><a href="index.html" class="active">writing</a></li>
+        <li><a href="../publications.html">papers</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="meta reveal"><span>writing</span><span>infrequent</span></div>
+        <h1 class="reveal d1">
+          <span class="first">Notes</span>
+          <span class="last">&amp; explainers</span>
+        </h1>
+        <p class="lede reveal d2">
+          Things I've written down so I'd remember them later. If they're useful to
+          you, that's a bonus.
+        </p>
+      </section>
+
+      <section>
+        <div class="posts">
+          <a class="post-link" href="stochastic-cell-fate.html">
+            <span class="date">2026 · 03</span>
+            <span class="title">Why noise matters: a stochastic view of cell fate</span>
+            <span class="read">read →</span>
+          </a>
+        </div>
+
+        <p style="margin-top: 3rem; color: var(--ink-muted); font-style: italic;">
+          More posts coming. To add one, copy <code>stochastic-cell-fate.html</code>,
+          rename it, change the contents, and add a <code>&lt;a class="post-link"&gt;</code>
+          entry above and on the home page.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="colophon">
+        <strong>oleskie.lab</strong> · this is plain HTML. Want markdown? Drop a
+        Jekyll <code>_config.yml</code> in the root, delete <code>.nojekyll</code>,
+        and rename posts to <code>YYYY-MM-DD-title.md</code> in <code>_posts/</code>.
+      </div>
+      <div class="links">
+        <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
+        <a href="https://github.com/">github</a>
+        <a href="https://scholar.google.com/">google scholar</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>

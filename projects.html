@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects · Austin Oleskie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="shell">
+    <nav class="top">
+      <div class="mark"><a href="index.html"><span class="dot"></span>oleskie<em>·</em>lab</a></div>
+      <ul>
+        <li><a href="index.html">index</a></li>
+        <li><a href="projects.html" class="active">projects</a></li>
+        <li><a href="blog/">writing</a></li>
+        <li><a href="publications.html">papers</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="meta reveal"><span>projects</span><span>n = 4</span></div>
+        <h1 class="reveal d1">
+          <span class="first">Things</span>
+          <span class="last">made</span>
+        </h1>
+        <p class="lede reveal d2">
+          Longer writeups of the work I've done. Each one is a story about a question
+          someone wanted answered and the toolchain I built to answer it.
+        </p>
+      </section>
+
+      <!-- ─── project: stiffness ─── -->
+      <section id="stiffness">
+        <div class="eyebrow">project · 01</div>
+        <h2><em>Substrate stiffness</em> as a tuning knob for therapeutic tolerance.</h2>
+        <p>
+          Non-small-cell lung cancer cells respond to EGFR inhibitors very differently
+          depending on the mechanical stiffness of the tissue around them. Soft
+          environments — like healthy lung — kill the cells. Stiff environments —
+          like tumor stroma — let some cells survive and keep dividing. The question
+          was <em>why</em>.
+        </p>
+        <p>
+          I built a stochastic, mechanistic model of the cell-cycle decision in
+          <code>PySB</code>, parameterized it with in-vitro measurements of mitotic
+          time, quiescence, and death, and ran it across thousands of
+          <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie</a>
+          trajectories per condition. The averages didn't tell the story; the
+          <em>distributions</em> did. On stiff substrates, the cell population had
+          measurably more access to a fast-dividing attractor — one the drug couldn't
+          quite close off.
+        </p>
+
+        <pre><code># sketch: simulating one stiffness condition
+from pysb.simulator import StochKitSimulator
+sim = StochKitSimulator(model, tspan=tspan)
+results = sim.run(
+    initials=initials_from_stiffness(kPa=12.0),
+    n_runs=2000,
+)
+trajectories = results.dataframe</code></pre>
+
+        <p>
+          Manuscript in preparation. Talks given at SBHD 2022 and Cancer Biology
+          Science Hour 2023.
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── project: wgcna ─── -->
+      <section id="wgcna">
+        <div class="eyebrow">project · 02</div>
+        <h2><em>Co-expression networks</em> on melanoma RNA-seq.</h2>
+        <p>
+          A collaboration with the Richmond lab on CXCR2-driven melanoma. Bulk RNA-seq
+          from tumors with and without functional CXCR2 — and the question of which
+          gene programs sit downstream of the receptor.
+        </p>
+        <p>
+          I ran weighted gene co-expression network analysis (<code>WGCNA</code>) over
+          the full dataset, identified modules that tracked with tumor-growth
+          phenotypes, and ran GO enrichment to make the modules legible. The pieces
+          made it into <a class="inline" href="publications.html">Yang et al., <em>Mol Cancer</em>, 2023</a>.
+        </p>
+
+        <pre><code># module detection, abridged
+library(WGCNA)
+sft <- pickSoftThreshold(expr, powerVector = 1:20)
+net <- blockwiseModules(
+  expr,
+  power      = sft$powerEstimate,
+  TOMType    = "signed",
+  minModuleSize = 30,
+  mergeCutHeight = 0.25
+)</code></pre>
+
+        <p>
+          The interesting bit wasn't any single module — it was watching modules
+          rearrange when CXCR2 was knocked out. A reminder that you're not really
+          looking at genes; you're looking at programs.
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── project: em ─── -->
+      <section id="em">
+        <div class="eyebrow">project · 03</div>
+        <h2><em>Arrestin recruitment,</em> visualized.</h2>
+        <p>
+          Long before the modeling work, I spent two years in the Skiniotis lab
+          collecting electron microscopy images of protein assemblies. The headline
+          paper was a structure of a <a class="inline" href="https://www.nature.com/articles/nature13430">GPCR–arrestin complex</a>
+          that helped settle a long-standing question about how arrestin gets to the
+          receptor — published in <em>Nature</em> in 2014.
+        </p>
+        <p>
+          Quieter contributions on the side: visualizing factor VIII bound to von
+          Willebrand factor (with the Fuller and Ginsburg labs), and the architecture
+          of VPS13 — a then-mysterious lipid-transport protein.
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── project: demo ─── -->
+      <section id="demo">
+        <div class="eyebrow">project · 04</div>
+        <h2><em>An interactive</em> two-state switch.</h2>
+        <p>
+          Built as a teaching aid: a tiny in-browser stochastic simulator. Two states,
+          forward and reverse rates, a population of independent cells. Move the
+          sliders; watch averages lie. Implemented in vanilla JS so it just works.
+        </p>
+        <p>
+          <a class="btn primary" href="demos/two-state-switch.html">open the demo →</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="colophon">
+        <strong>oleskie.lab</strong> · these writeups are my own; collaborators are
+        named in the linked publications.
+      </div>
+      <div class="links">
+        <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
+        <a href="https://github.com/">github</a>
+        <a href="https://scholar.google.com/">google scholar</a>
+        <a href="https://www.linkedin.com/">linkedin</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Two-state switch · Austin Oleskie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="shell">
+    <nav class="top">
+      <div class="mark"><a href="../index.html"><span class="dot"></span>oleskie<em>·</em>lab</a></div>
+      <ul>
+        <li><a href="../index.html">index</a></li>
+        <li><a href="../projects.html" class="active">projects</a></li>
+        <li><a href="../blog/">writing</a></li>
+        <li><a href="../publications.html">papers</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="article" style="max-width: 760px;">
+        <header class="reveal">
+          <div class="date">interactive demo · vanilla js</div>
+          <h1>A noisy two-state switch.</h1>
+        </header>
+
+        <p class="lede reveal d1">
+          A population of independent cells, each in one of two states (<em>off</em>
+          or <em>on</em>), each flipping back and forth at random. Move the rates;
+          watch what happens. The thing to notice: even at steady state, the
+          population is never quiet.
+        </p>
+
+        <div class="demo-frame reveal d2">
+          <div class="demo-controls">
+            <label>
+              <span class="lbl">k<sub>on</sub> &nbsp;<em>(off → on rate)</em></span>
+              <input id="kon" type="range" min="0.05" max="2" step="0.05" value="0.4" />
+              <span>current: <span class="val" id="kon-val">0.40</span> /s</span>
+            </label>
+            <label>
+              <span class="lbl">k<sub>off</sub> &nbsp;<em>(on → off rate)</em></span>
+              <input id="koff" type="range" min="0.05" max="2" step="0.05" value="0.6" />
+              <span>current: <span class="val" id="koff-val">0.60</span> /s</span>
+            </label>
+            <label>
+              <span class="lbl">N &nbsp;<em>(cells in population)</em></span>
+              <input id="ncell" type="range" min="20" max="500" step="10" value="200" />
+              <span>current: <span class="val" id="ncell-val">200</span></span>
+            </label>
+          </div>
+
+          <canvas id="plot" class="demo-canvas"></canvas>
+
+          <div class="demo-buttons">
+            <button id="reset">reset</button>
+            <button id="pause">pause</button>
+          </div>
+          <div style="margin-top: 0.75rem; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft);">
+            fraction <em>on</em>: <span class="val" id="frac">—</span>
+            <span style="margin-left: 1.5rem;">predicted (k<sub>on</sub>/(k<sub>on</sub>+k<sub>off</sub>)): <span class="val" id="pred">—</span></span>
+          </div>
+        </div>
+
+        <h2>What you're looking at</h2>
+        <p>
+          Each cell is an independent two-state Markov chain. When it's <em>off</em>,
+          it transitions to <em>on</em> with rate k<sub>on</sub>. When it's <em>on</em>,
+          it transitions to <em>off</em> with rate k<sub>off</sub>. The plot tracks the
+          <em>fraction</em> of cells in the on state over time.
+        </p>
+
+        <p>
+          The deterministic theory predicts the population will settle at
+          <code>k<sub>on</sub> / (k<sub>on</sub> + k<sub>off</sub>)</code>. Watch the
+          actual trajectory: it fluctuates around that prediction by an amount that
+          depends on N. Smaller populations are noisier — the central limit
+          theorem at work.
+        </p>
+
+        <p>
+          This is the simplest possible cell-fate scenario. Real biology adds
+          feedback, multiple states, and history dependence — and the noise
+          stops being a fluctuation around a single mean and starts steering
+          the system toward different attractors entirely.
+        </p>
+
+        <p class="footnote">
+          Algorithm: tau-leaping with Δt = 0.05 s. The full Gillespie algorithm
+          would be exact but slower; tau-leaping is fine here for visual
+          intuition. The simulation runs at ~20 frames/sec in your browser.
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <div class="colophon">
+        <strong>oleskie.lab</strong> · feel free to view-source. The whole
+        simulation is about 60 lines of plain JS at the bottom of this file.
+      </div>
+      <div class="links">
+        <a href="../projects.html">← projects</a>
+        <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/main.js"></script>
+  <script>
+    /* ─── two-state stochastic switch ─── */
+    (function () {
+      const cv = document.getElementById("plot");
+      const ctx = cv.getContext("2d");
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      const kInp = document.getElementById("kon");
+      const koInp = document.getElementById("koff");
+      const nInp = document.getElementById("ncell");
+      const kVal = document.getElementById("kon-val");
+      const koVal = document.getElementById("koff-val");
+      const nVal = document.getElementById("ncell-val");
+      const fracEl = document.getElementById("frac");
+      const predEl = document.getElementById("pred");
+
+      let kon = parseFloat(kInp.value);
+      let koff = parseFloat(koInp.value);
+      let N = parseInt(nInp.value, 10);
+      let states; // 0/1 per cell
+      let history; // recent fractions for plotting
+      let paused = false;
+
+      const dt = 0.05;
+      const maxHistory = 600;
+
+      function initStates() {
+        states = new Uint8Array(N);
+        // start with everything off
+        history = [];
+      }
+
+      function resizeCanvas() {
+        const r = cv.getBoundingClientRect();
+        cv.width = r.width * dpr;
+        cv.height = r.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function step() {
+        // tau-leap: each cell flips with prob (rate * dt)
+        const pOn = kon * dt;   // off -> on
+        const pOff = koff * dt; // on -> off
+        let count = 0;
+        for (let i = 0; i < N; i++) {
+          if (states[i] === 0) {
+            if (Math.random() < pOn) states[i] = 1;
+          } else {
+            if (Math.random() < pOff) states[i] = 0;
+          }
+          count += states[i];
+        }
+        const frac = count / N;
+        history.push(frac);
+        if (history.length > maxHistory) history.shift();
+        return frac;
+      }
+
+      function draw(currentFrac) {
+        const W = cv.clientWidth;
+        const H = cv.clientHeight;
+        ctx.clearRect(0, 0, W, H);
+
+        // grid
+        ctx.strokeStyle = "#c8bea8";
+        ctx.lineWidth = 0.5;
+        ctx.setLineDash([2, 4]);
+        for (let f = 0.25; f < 1; f += 0.25) {
+          const y = H - f * (H - 30) - 15;
+          ctx.beginPath();
+          ctx.moveTo(40, y);
+          ctx.lineTo(W - 10, y);
+          ctx.stroke();
+        }
+        ctx.setLineDash([]);
+
+        // axis labels
+        ctx.fillStyle = "#8a8590";
+        ctx.font = "11px 'JetBrains Mono', monospace";
+        ctx.textAlign = "right";
+        for (let f = 0; f <= 1; f += 0.25) {
+          const y = H - f * (H - 30) - 15;
+          ctx.fillText(f.toFixed(2), 35, y + 3);
+        }
+        ctx.textAlign = "left";
+        ctx.fillText("fraction on", 40, 14);
+
+        // predicted equilibrium line
+        const pred = kon / (kon + koff);
+        const yPred = H - pred * (H - 30) - 15;
+        ctx.strokeStyle = "#0fb5a8";
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([5, 4]);
+        ctx.beginPath();
+        ctx.moveTo(40, yPred);
+        ctx.lineTo(W - 10, yPred);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = "#0fb5a8";
+        ctx.textAlign = "right";
+        ctx.fillText("predicted: " + pred.toFixed(2), W - 10, yPred - 5);
+
+        // trajectory
+        ctx.strokeStyle = "#ff2e6e";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        const xStart = 40;
+        const xEnd = W - 10;
+        const xRange = xEnd - xStart;
+        for (let i = 0; i < history.length; i++) {
+          const x = xStart + (i / maxHistory) * xRange;
+          const y = H - history[i] * (H - 30) - 15;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // current value bullet
+        if (history.length > 0) {
+          const lastX = xStart + ((history.length - 1) / maxHistory) * xRange;
+          const lastY = H - history[history.length - 1] * (H - 30) - 15;
+          ctx.fillStyle = "#ff2e6e";
+          ctx.beginPath();
+          ctx.arc(lastX, lastY, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // readout text
+        fracEl.textContent = currentFrac.toFixed(3);
+        predEl.textContent = pred.toFixed(3);
+      }
+
+      function loop() {
+        if (!paused) {
+          const f = step();
+          draw(f);
+        }
+        requestAnimationFrame(loop);
+      }
+
+      // event wiring
+      kInp.addEventListener("input", () => {
+        kon = parseFloat(kInp.value);
+        kVal.textContent = kon.toFixed(2);
+      });
+      koInp.addEventListener("input", () => {
+        koff = parseFloat(koInp.value);
+        koVal.textContent = koff.toFixed(2);
+      });
+      nInp.addEventListener("input", () => {
+        N = parseInt(nInp.value, 10);
+        nVal.textContent = N;
+        initStates();
+      });
+      document.getElementById("reset").addEventListener("click", initStates);
+      document.getElementById("pause").addEventListener("click", (e) => {
+        paused = !paused;
+        e.target.textContent = paused ? "resume" : "pause";
+      });
+
+      window.addEventListener("resize", resizeCanvas);
+
+      // boot
+      resizeCanvas();
+      initStates();
+      loop();
+    })();
+  </script>
+</body>
+</html>
