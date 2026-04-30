@@ -1,0 +1,1962 @@
+[
+  {
+    "iso": "AFG",
+    "country": "Afghanistan",
+    "book": "A Thousand Splendid Suns",
+    "author": "Hosseini",
+    "rating": 2.0,
+    "status": "read",
+    "alt": null,
+    "id": "004"
+  },
+  {
+    "iso": "ALB",
+    "country": "Albania",
+    "book": "The General of the Dead Army",
+    "author": "Kadare",
+    "rating": 9.0,
+    "status": "read",
+    "alt": null,
+    "id": "008"
+  },
+  {
+    "iso": "DZA",
+    "country": "Algeria",
+    "book": "The Ogre's Embrace",
+    "author": "Mimouni",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "012"
+  },
+  {
+    "iso": "AND",
+    "country": "Andorra",
+    "book": "The Teacher of Cheops",
+    "author": "Salvado",
+    "rating": 4.0,
+    "status": "read",
+    "alt": null,
+    "id": "020"
+  },
+  {
+    "iso": "AGO",
+    "country": "Angola",
+    "book": "transparent city",
+    "author": "ondjaki",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "024"
+  },
+  {
+    "iso": "ATG",
+    "country": "Antigua and Barbuda",
+    "book": "Lucy",
+    "author": "Kincaid",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "028"
+  },
+  {
+    "iso": "ARG",
+    "country": "Argentina",
+    "book": "Labyrinths",
+    "author": "Borges",
+    "rating": 10.0,
+    "status": "read",
+    "alt": null,
+    "id": "032"
+  },
+  {
+    "iso": "ARM",
+    "country": "Armenia",
+    "book": "My Soul in Exile and Other Writings",
+    "author": "Yessayan",
+    "rating": 8.0,
+    "status": "read",
+    "alt": "William Saroyan (American)",
+    "id": "051"
+  },
+  {
+    "iso": "AUS",
+    "country": "Australia",
+    "book": "Permutation City",
+    "author": "Egan",
+    "rating": 9.0,
+    "status": "read",
+    "alt": null,
+    "id": "036"
+  },
+  {
+    "iso": "AUT",
+    "country": "Austria",
+    "book": "Wonderful, Wonderful Times",
+    "author": "Jelinek",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "040"
+  },
+  {
+    "iso": "AZE",
+    "country": "Azerbaijan",
+    "book": "Ali and Nino",
+    "author": "?",
+    "rating": 4.0,
+    "status": "read",
+    "alt": null,
+    "id": "031"
+  },
+  {
+    "iso": "BHS",
+    "country": "Bahamas",
+    "book": "Thine is the Kingdom",
+    "author": "Buckner",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "044"
+  },
+  {
+    "iso": "BHR",
+    "country": "Bahrain",
+    "book": "The Pearl Thief",
+    "author": "Noor Al Noaimi",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "048"
+  },
+  {
+    "iso": "BGD",
+    "country": "Bangladesh",
+    "book": "The Startup Wife",
+    "author": "Tahmima Anam",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "050"
+  },
+  {
+    "iso": "BRB",
+    "country": "Barbados",
+    "book": "The Polished Hoe",
+    "author": "Austin Clarke",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "052"
+  },
+  {
+    "iso": "BLR",
+    "country": "Belarus",
+    "book": "King Stakh's Wild Hunt",
+    "author": "Uladzimir Karatkievich",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "112"
+  },
+  {
+    "iso": "BEL",
+    "country": "Belgium",
+    "book": "Thirty Days – Annelies Verbeke",
+    "author": null,
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "056"
+  },
+  {
+    "iso": "BLZ",
+    "country": "Belize",
+    "book": "On Heroes, Lizards and Passion",
+    "author": "Zoila Ellis",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "084"
+  },
+  {
+    "iso": "BEN",
+    "country": "Benin",
+    "book": "Snares Without End",
+    "author": "Bhely-Quenum",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "204"
+  },
+  {
+    "iso": "BTN",
+    "country": "Bhutan",
+    "book": "The Circle of Karma",
+    "author": "Kunzang Choden",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "064"
+  },
+  {
+    "iso": "BOL",
+    "country": "Bolivia",
+    "book": "Turing's Delirium",
+    "author": "Edmundo Paz Soldan",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "068"
+  },
+  {
+    "iso": "BIH",
+    "country": "Bosnia and Herzegovina",
+    "book": "Mama Leone",
+    "author": "Miljenko Jergovic",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "070"
+  },
+  {
+    "iso": "BWA",
+    "country": "Botswana",
+    "book": "A Question of Power",
+    "author": "Bessie Head",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "072"
+  },
+  {
+    "iso": "BRA",
+    "country": "Brazil",
+    "book": "The Alienist",
+    "author": "Machado de Assis",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "076"
+  },
+  {
+    "iso": "BRN",
+    "country": "Brunei",
+    "book": "Written in Black",
+    "author": "K.H. Lim",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "096"
+  },
+  {
+    "iso": "BGR",
+    "country": "Bulgaria",
+    "book": "The Physics of Sorrow",
+    "author": "Georgi Gospodinov",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "100"
+  },
+  {
+    "iso": "BFA",
+    "country": "Burkina Faso",
+    "book": "The Parachute Drop",
+    "author": "Norbert Zongo",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "854"
+  },
+  {
+    "iso": "BDI",
+    "country": "Burundi",
+    "book": "Baho!",
+    "author": "Roland Rugero",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "108"
+  },
+  {
+    "iso": "CIV",
+    "country": "Côte d'Ivoire",
+    "book": "Allah is not Obliged",
+    "author": "Kourouma",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "384"
+  },
+  {
+    "iso": "CPV",
+    "country": "Cabo Verde",
+    "book": "The Last Will & Testament of Senhor da Silva Araújo",
+    "author": "Almeida",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "132"
+  },
+  {
+    "iso": "KHM",
+    "country": "Cambodia",
+    "book": "In the Shadow of the Banyan",
+    "author": "Ratner",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "116"
+  },
+  {
+    "iso": "CMR",
+    "country": "Cameroon",
+    "book": "The Poor Christ of Bomba",
+    "author": "Beti",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "120"
+  },
+  {
+    "iso": "CAN",
+    "country": "Canada",
+    "book": "Neuromancer",
+    "author": "Gibson",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "124"
+  },
+  {
+    "iso": "CAF",
+    "country": "Central African Republic",
+    "book": "Dada’s Travels from Ouadda to Bangui",
+    "author": "Bambote",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "140"
+  },
+  {
+    "iso": "TCD",
+    "country": "Chad",
+    "book": "Told by Starlight in Chad",
+    "author": "Seid",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "148"
+  },
+  {
+    "iso": "CHL",
+    "country": "Chile",
+    "book": "The Private Lives of Trees",
+    "author": "Zambra",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "152"
+  },
+  {
+    "iso": "CHN",
+    "country": "China",
+    "book": "The Three Body Problem",
+    "author": "Liu",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "156"
+  },
+  {
+    "iso": "COL",
+    "country": "Colombia",
+    "book": "One Hundred Years of Solitude",
+    "author": "Marquez",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "170"
+  },
+  {
+    "iso": "COM",
+    "country": "Comoros",
+    "book": "A Girl Called Eel",
+    "author": "Zamir",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "174"
+  },
+  {
+    "iso": "COD",
+    "country": "DR Congo",
+    "book": "Tram 83",
+    "author": "Mujila",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "180"
+  },
+  {
+    "iso": "COG",
+    "country": "Republic of the Congo",
+    "book": "Broken Glass",
+    "author": "Mabanckou",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "178"
+  },
+  {
+    "iso": "CRI",
+    "country": "Costa Rica",
+    "book": "Redemptions",
+    "author": "Gagini",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "188"
+  },
+  {
+    "iso": "HRV",
+    "country": "Croatia",
+    "book": "The Age of Skin",
+    "author": "Ugresic",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "191"
+  },
+  {
+    "iso": "CUB",
+    "country": "Cuba",
+    "book": "Infante's Inferno",
+    "author": "Infante",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "192"
+  },
+  {
+    "iso": "CYP",
+    "country": "Cyprus",
+    "book": "Ledra Street",
+    "author": "Nadjarian",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "196"
+  },
+  {
+    "iso": "CZE",
+    "country": "Czechia",
+    "book": "War with the Newts",
+    "author": "Capek",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "203"
+  },
+  {
+    "iso": "DNK",
+    "country": "Denmark",
+    "book": "Fear and Trembling",
+    "author": "Kierkegaard",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "208"
+  },
+  {
+    "iso": "DJI",
+    "country": "Djibouti",
+    "book": "In the United States of Africa",
+    "author": "Waberi",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "262"
+  },
+  {
+    "iso": "DMA",
+    "country": "Dominica",
+    "book": "After Leaving Mr. Mackenzie",
+    "author": "Rhys",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "212"
+  },
+  {
+    "iso": "DOM",
+    "country": "Dominican Republic",
+    "book": "Tentacle",
+    "author": "Indiana",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "214"
+  },
+  {
+    "iso": "ECU",
+    "country": "Ecuador",
+    "book": "When the Guayacans Were in Bloom",
+    "author": "Bass",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "218"
+  },
+  {
+    "iso": "EGY",
+    "country": "Egypt",
+    "book": "Miramar",
+    "author": "Mahfouz",
+    "rating": 7.0,
+    "status": "read",
+    "alt": "Utopia - Tawik",
+    "id": "818"
+  },
+  {
+    "iso": "SLV",
+    "country": "El Salvador",
+    "book": "Senselessness",
+    "author": "Moya",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "222"
+  },
+  {
+    "iso": "GNQ",
+    "country": "Equatorial Guinea",
+    "book": "Shadows of Your Black Memory",
+    "author": "Ndongo",
+    "rating": 5.0,
+    "status": "read",
+    "alt": null,
+    "id": "226"
+  },
+  {
+    "iso": "ERI",
+    "country": "Eritrea",
+    "book": "The Consequences of Love",
+    "author": "Addonia",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "232"
+  },
+  {
+    "iso": "EST",
+    "country": "Estonia",
+    "book": "The Beauty of History",
+    "author": "Luik",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "233"
+  },
+  {
+    "iso": "SWZ",
+    "country": "Eswatini",
+    "book": "Weeding the Flower Beds",
+    "author": "Mkhonza",
+    "rating": 3.0,
+    "status": "read",
+    "alt": null,
+    "id": "748"
+  },
+  {
+    "iso": "ETH",
+    "country": "Ethiopia",
+    "book": "The Shadow King",
+    "author": "Mengiste",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "231"
+  },
+  {
+    "iso": "FJI",
+    "country": "Fiji",
+    "book": "Kava in the Blood",
+    "author": "Thomson",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "242"
+  },
+  {
+    "iso": "FIN",
+    "country": "Finland",
+    "book": "The Year of the Hare",
+    "author": "Paasilinna",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "246"
+  },
+  {
+    "iso": "FRA",
+    "country": "France",
+    "book": "Planet of the Apes",
+    "author": "Boulle",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "250"
+  },
+  {
+    "iso": "GAB",
+    "country": "Gabon",
+    "book": "Mema",
+    "author": "Mengara",
+    "rating": 7.0,
+    "status": "read",
+    "alt": null,
+    "id": "266"
+  },
+  {
+    "iso": "GMB",
+    "country": "Gambia",
+    "book": "The Sun Will Soon Shine",
+    "author": "Singhateh",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "270"
+  },
+  {
+    "iso": "GEO",
+    "country": "Georgia",
+    "book": "Kvachi",
+    "author": "Javakhishvili",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "268"
+  },
+  {
+    "iso": "DEU",
+    "country": "Germany",
+    "book": "The Glass Bead Game",
+    "author": "Hesse",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "276"
+  },
+  {
+    "iso": "GHA",
+    "country": "Ghana",
+    "book": "Our Sister Killjoy",
+    "author": "Aidoo",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "288"
+  },
+  {
+    "iso": "GRC",
+    "country": "Greece",
+    "book": "The Sleepwalker",
+    "author": "Karapanou",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "300"
+  },
+  {
+    "iso": "GRD",
+    "country": "Grenada",
+    "book": "The Ladies Are Upstairs",
+    "author": "Collins",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "308"
+  },
+  {
+    "iso": "GTM",
+    "country": "Guatemala",
+    "book": "The President",
+    "author": "Asturias",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "320"
+  },
+  {
+    "iso": "GIN",
+    "country": "Guinea",
+    "book": "The Guardian of the Word",
+    "author": "Laye",
+    "rating": 6.0,
+    "status": "read",
+    "alt": null,
+    "id": "324"
+  },
+  {
+    "iso": "GNB",
+    "country": "Guinea-Bissau",
+    "book": "Unity and Struggle: Speeches and Writings of Amilcar Cabral",
+    "author": null,
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "624"
+  },
+  {
+    "iso": "GUY",
+    "country": "Guyana",
+    "book": "Buxton Spice",
+    "author": "Kempadoo",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "328"
+  },
+  {
+    "iso": "HTI",
+    "country": "Haiti",
+    "book": "I am a Japanese Writer",
+    "author": "LaFerrière",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "332"
+  },
+  {
+    "iso": "VAT",
+    "country": "Vatican City",
+    "book": "Shroud of Secrecy: The Story of Corruption Within the Vatican",
+    "author": null,
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "336"
+  },
+  {
+    "iso": "HND",
+    "country": "Honduras",
+    "book": "13 Colors of the Honduran Resistance",
+    "author": "Cardoza",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "340"
+  },
+  {
+    "iso": "HUN",
+    "country": "Hungary",
+    "book": "Satantango",
+    "author": "Krasznahorkai",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "348"
+  },
+  {
+    "iso": "ISL",
+    "country": "Iceland",
+    "book": "Independent People",
+    "author": "Laxness",
+    "rating": 8.0,
+    "status": "read",
+    "alt": null,
+    "id": "352"
+  },
+  {
+    "iso": "IND",
+    "country": "India",
+    "book": "The Woman Who Thought She Was a Planet",
+    "author": "Singh",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "356"
+  },
+  {
+    "iso": "IDN",
+    "country": "Indonesia",
+    "book": "Durga/Umayi",
+    "author": "Mangunwijaya",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "360"
+  },
+  {
+    "iso": "IRN",
+    "country": "Iran",
+    "book": "The Blind Owl",
+    "author": "Sadegh Hedayat",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "364"
+  },
+  {
+    "iso": "IRQ",
+    "country": "Iraq",
+    "book": "Frankenstein in Baghdad",
+    "author": "Saadawi + Frankenstein",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "368"
+  },
+  {
+    "iso": "IRL",
+    "country": "Ireland",
+    "book": "Dracula",
+    "author": "Stoker",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "372"
+  },
+  {
+    "iso": "ISR",
+    "country": "Israel",
+    "book": "A Horse Walks into a Bar",
+    "author": "Grossman",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "376"
+  },
+  {
+    "iso": "ITA",
+    "country": "Italy",
+    "book": "Days of Abandonment",
+    "author": "Ferrante",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "380"
+  },
+  {
+    "iso": "JAM",
+    "country": "Jamaica",
+    "book": "John Crow's Devil",
+    "author": "James",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "388"
+  },
+  {
+    "iso": "JPN",
+    "country": "Japan",
+    "book": "Sysiphean",
+    "author": "Torishima",
+    "rating": null,
+    "status": "planned",
+    "alt": "I am a Cat - Soseki",
+    "id": "392"
+  },
+  {
+    "iso": "JOR",
+    "country": "Jordan",
+    "book": "Cities of Salt",
+    "author": "Munif",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "400"
+  },
+  {
+    "iso": "KAZ",
+    "country": "Kazakhstan",
+    "book": "A Life at Noon",
+    "author": "Talasbek Asemkulov",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "398"
+  },
+  {
+    "iso": "KEN",
+    "country": "Kenya",
+    "book": "And This is How to Stay Alive",
+    "author": "Kagunda",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "404"
+  },
+  {
+    "iso": "KIR",
+    "country": "Kiribati",
+    "book": "In Their Own Words: History and Society of the Gilbetese",
+    "author": "Uriam",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "296"
+  },
+  {
+    "iso": "KWT",
+    "country": "Kuwait",
+    "book": "Mama Hissa's Mice",
+    "author": "Alsanousi",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "414"
+  },
+  {
+    "iso": "KGZ",
+    "country": "Kyrgyzstan",
+    "book": "The Day Lasts More than a Hundred Years",
+    "author": "Aitmatov",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "417"
+  },
+  {
+    "iso": "LAO",
+    "country": "Laos",
+    "book": "Mother's Beloved",
+    "author": "Bounyavong",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "418"
+  },
+  {
+    "iso": "LVA",
+    "country": "Latvia",
+    "book": "Soviet Milk",
+    "author": "Ikstena",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "428"
+  },
+  {
+    "iso": "LBN",
+    "country": "Lebanon",
+    "book": "Koolaids: The Art of War",
+    "author": "Alameddine",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "422"
+  },
+  {
+    "iso": "LSO",
+    "country": "Lesotho",
+    "book": "Chaka",
+    "author": "Mofolo",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "426"
+  },
+  {
+    "iso": "LBR",
+    "country": "Liberia",
+    "book": "The Lazarus Effect",
+    "author": "Golakai",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "430"
+  },
+  {
+    "iso": "LBY",
+    "country": "Libya",
+    "book": "Gold Dust",
+    "author": "al Koni",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "434"
+  },
+  {
+    "iso": "LIE",
+    "country": "Liechtenstein",
+    "book": "Of Things",
+    "author": "Donhauser",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "438"
+  },
+  {
+    "iso": "LTU",
+    "country": "Lithuania",
+    "book": "White Shroud",
+    "author": "Skema",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "440"
+  },
+  {
+    "iso": "LUX",
+    "country": "Luxembourg",
+    "book": "At the Edge of Night",
+    "author": "Koltz",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "442"
+  },
+  {
+    "iso": "MDG",
+    "country": "Madagascar",
+    "book": "Return to the Enchanted Island -Ravaloson",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "450"
+  },
+  {
+    "iso": "MWI",
+    "country": "Malawi",
+    "book": "The Jive Talker",
+    "author": "Kambalu",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "454"
+  },
+  {
+    "iso": "MYS",
+    "country": "Malaysia",
+    "book": "The Ghost Bride",
+    "author": "Choo",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "458"
+  },
+  {
+    "iso": "MDV",
+    "country": "Maldives",
+    "book": "Folk Tales of the Maldives",
+    "author": "Romero-Frias",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "462"
+  },
+  {
+    "iso": "MLI",
+    "country": "Mali",
+    "book": "The Fortunes of Wangrin",
+    "author": "Ba",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "466"
+  },
+  {
+    "iso": "MLT",
+    "country": "Malta",
+    "book": "Happy Weekend",
+    "author": "Mifsud",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "470"
+  },
+  {
+    "iso": "MHL",
+    "country": "Marshall Islands",
+    "book": "Marshall Islands Legends and Stories",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "584"
+  },
+  {
+    "iso": "MRT",
+    "country": "Mauritania",
+    "book": "Crossing the Atlantic Ocean In Search of Happiness",
+    "author": "Ndiaye",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "478"
+  },
+  {
+    "iso": "MUS",
+    "country": "Mauritius",
+    "book": "Tropic of Violence",
+    "author": "Appanah",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "480"
+  },
+  {
+    "iso": "MEX",
+    "country": "Mexico",
+    "book": "Mexican Gothic",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "484"
+  },
+  {
+    "iso": "FSM",
+    "country": "Micronesia",
+    "book": "Indigenous Literatures from Micronesia",
+    "author": null,
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "583"
+  },
+  {
+    "iso": "MDA",
+    "country": "Moldova",
+    "book": "The Good Life Elsewhere",
+    "author": "Lorchenckov",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "498"
+  },
+  {
+    "iso": "MCO",
+    "country": "Monaco",
+    "book": "Palace: My Life in the Royal Family of Monaco",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "492"
+  },
+  {
+    "iso": "MNG",
+    "country": "Mongolia",
+    "book": "The Blue Sky",
+    "author": "Tschinag",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "496"
+  },
+  {
+    "iso": "MNE",
+    "country": "Montenegro",
+    "book": "Mouth full of earth",
+    "author": "Scepanovic",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "499"
+  },
+  {
+    "iso": "MAR",
+    "country": "Morocco",
+    "book": "The Game of Forgetting",
+    "author": "Berrada",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "504"
+  },
+  {
+    "iso": "MOZ",
+    "country": "Mozambique",
+    "book": "Sleepwalking Land",
+    "author": "Couto",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "508"
+  },
+  {
+    "iso": "MMR",
+    "country": "Myanmar",
+    "book": "Smile as they Bow",
+    "author": "Yi",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "104"
+  },
+  {
+    "iso": "NAM",
+    "country": "Namibia",
+    "book": "The Purple Violet of Oshaantu",
+    "author": "Andreas",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "516"
+  },
+  {
+    "iso": "NRU",
+    "country": "Nauru",
+    "book": "Indigenous Literatures from Micronesia",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "520"
+  },
+  {
+    "iso": "NPL",
+    "country": "Nepal",
+    "book": "The Lazy Conman and Other Stories",
+    "author": "Baral",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "524"
+  },
+  {
+    "iso": "NLD",
+    "country": "Netherlands",
+    "book": "The Discovery of Heaven",
+    "author": "Mulisch",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "528"
+  },
+  {
+    "iso": "NZL",
+    "country": "New Zealand",
+    "book": "The Bone People",
+    "author": "Hulme",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "554"
+  },
+  {
+    "iso": "NIC",
+    "country": "Nicaragua",
+    "book": "Fire from the Mountain",
+    "author": "Cabezas",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "558"
+  },
+  {
+    "iso": "NER",
+    "country": "Niger",
+    "book": "The Epic of Askia Mohammed",
+    "author": "Malio",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "562"
+  },
+  {
+    "iso": "NGA",
+    "country": "Nigeria",
+    "book": "Purple Hibiscus",
+    "author": "Adichie",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "566"
+  },
+  {
+    "iso": "PRK",
+    "country": "North Korea",
+    "book": "Sea of Blood",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "408"
+  },
+  {
+    "iso": "MKD",
+    "country": "North Macedonia",
+    "book": "A Spare Life",
+    "author": "Dimkovska",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "807"
+  },
+  {
+    "iso": "NOR",
+    "country": "Norway",
+    "book": "Hunger",
+    "author": "Hamsun",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "578"
+  },
+  {
+    "iso": "OMN",
+    "country": "Oman",
+    "book": "Earth Weeps, Saturn Laughs",
+    "author": "Al Farsi",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "512"
+  },
+  {
+    "iso": "PAK",
+    "country": "Pakistan",
+    "book": "Burnt Shadows",
+    "author": "Shamsie",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "586"
+  },
+  {
+    "iso": "PLW",
+    "country": "Palau",
+    "book": "Indigenous Literatures from Micronesia",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "585"
+  },
+  {
+    "iso": "PSE",
+    "country": "Palestine",
+    "book": "Mordechai's Moustache and his Wife's Cats",
+    "author": "Shukair",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "275"
+  },
+  {
+    "iso": "PAN",
+    "country": "Panama",
+    "book": "The Golden Horse",
+    "author": "Morgan",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "591"
+  },
+  {
+    "iso": "PNG",
+    "country": "Papua New Guinea",
+    "book": "My Mother Calls Me Yaltep -Kilage",
+    "author": null,
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "598"
+  },
+  {
+    "iso": "PRY",
+    "country": "Paraguay",
+    "book": "I the Supreme",
+    "author": "Bastos",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "600"
+  },
+  {
+    "iso": "PER",
+    "country": "Peru",
+    "book": "Conversation in the Cathedral",
+    "author": "Llosa",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "604"
+  },
+  {
+    "iso": "PHL",
+    "country": "Philippines",
+    "book": "Ilustrado",
+    "author": "Syjuco",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "608"
+  },
+  {
+    "iso": "POL",
+    "country": "Poland",
+    "book": "Solaris, The Star Diaries",
+    "author": "Lem (Johnston)",
+    "rating": 9.0,
+    "status": "read",
+    "alt": null,
+    "id": "616"
+  },
+  {
+    "iso": "PRT",
+    "country": "Portugal",
+    "book": "The Book of Disquiet",
+    "author": "Pessoa",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "620"
+  },
+  {
+    "iso": "QAT",
+    "country": "Qatar",
+    "book": "The Corsair",
+    "author": "Al-Mahmoud",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "634"
+  },
+  {
+    "iso": "ROU",
+    "country": "Romania",
+    "book": "Adventures In Immediate Irreality",
+    "author": "Blecher",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "642"
+  },
+  {
+    "iso": "RUS",
+    "country": "Russia",
+    "book": "The Master and Margarita",
+    "author": "Bulgakov",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "643"
+  },
+  {
+    "iso": "RWA",
+    "country": "Rwanda",
+    "book": "Small Country",
+    "author": "Faye",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "646"
+  },
+  {
+    "iso": "KNA",
+    "country": "Saint Kitts and Nevis",
+    "book": "Only God Can Make a Tree",
+    "author": "Bertram Roach",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "659"
+  },
+  {
+    "iso": "LCA",
+    "country": "Saint Lucia",
+    "book": "A Room on the Hill",
+    "author": "St Omer",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "662"
+  },
+  {
+    "iso": "VCT",
+    "country": "Saint Vincent and the Grenadines",
+    "book": "Return to Arcadia",
+    "author": "Thomas",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "670"
+  },
+  {
+    "iso": "WSM",
+    "country": "Samoa",
+    "book": "Pouliuli",
+    "author": "Wendt",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "882"
+  },
+  {
+    "iso": "SMR",
+    "country": "San Marino",
+    "book": "The Republic of San Marino Historical and Artistic Guide",
+    "author": "Matteini",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "674"
+  },
+  {
+    "iso": "STP",
+    "country": "Sao Tome and Principe",
+    "book": "Lusophone African Short Stories and Poetry after Independence: Decolonial Destinies",
+    "author": null,
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "678"
+  },
+  {
+    "iso": "SAU",
+    "country": "Saudi Arabia",
+    "book": "Girls of Riyadh",
+    "author": "Alsanea",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "682"
+  },
+  {
+    "iso": "SEN",
+    "country": "Senegal",
+    "book": "At Night All Blood Is Black",
+    "author": "Diop",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "686"
+  },
+  {
+    "iso": "SRB",
+    "country": "Serbia",
+    "book": "The Bridge on the Drina",
+    "author": "Andric",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "688"
+  },
+  {
+    "iso": "SYC",
+    "country": "Seychelles",
+    "book": "Echoes from the Oasis",
+    "author": "Tirant",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "690"
+  },
+  {
+    "iso": "SLE",
+    "country": "Sierra Leone",
+    "book": "Idols with Tears",
+    "author": "Kallon",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "694"
+  },
+  {
+    "iso": "SGP",
+    "country": "Singapore",
+    "book": "The Black Tides of Heaven",
+    "author": "Yang",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "702"
+  },
+  {
+    "iso": "SVK",
+    "country": "Slovakia",
+    "book": "Rivers of Babylon",
+    "author": "Pist'anek",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "703"
+  },
+  {
+    "iso": "SVN",
+    "country": "Slovenia",
+    "book": "Galley Slave",
+    "author": "Jancar",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "705"
+  },
+  {
+    "iso": "SLB",
+    "country": "Solomon Islands",
+    "book": "Raindrops Poems",
+    "author": "Kulaghoe",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "090"
+  },
+  {
+    "iso": "SOM",
+    "country": "Somalia",
+    "book": "Secrets",
+    "author": "Farah",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "706"
+  },
+  {
+    "iso": "ZAF",
+    "country": "South Africa",
+    "book": "Waiting for the Barbarians",
+    "author": "Coetzee",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "710"
+  },
+  {
+    "iso": "KOR",
+    "country": "South Korea",
+    "book": "Tower",
+    "author": "Bae",
+    "rating": null,
+    "status": "planned",
+    "alt": "I'm Waiting for You - Kim",
+    "id": "410"
+  },
+  {
+    "iso": "SSD",
+    "country": "South Sudan",
+    "book": "After Troy",
+    "author": "Liyong",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "728"
+  },
+  {
+    "iso": "ESP",
+    "country": "Spain",
+    "book": "Don Quixote",
+    "author": "Cervantes",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "724"
+  },
+  {
+    "iso": "LKA",
+    "country": "Sri Lanka",
+    "book": "Chinaman",
+    "author": "Karunatilaka",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "144"
+  },
+  {
+    "iso": "SDN",
+    "country": "Sudan",
+    "book": "Season of Migration to the North",
+    "author": "Salih",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "729"
+  },
+  {
+    "iso": "SUR",
+    "country": "Suriname",
+    "book": "We Slaves of Suriname",
+    "author": "de Kom",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "740"
+  },
+  {
+    "iso": "SWE",
+    "country": "Sweden",
+    "book": "Let the Right One In",
+    "author": "Lindqvist",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "752"
+  },
+  {
+    "iso": "CHE",
+    "country": "Switzerland",
+    "book": "Jakob von Gunten",
+    "author": "Walser",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "756"
+  },
+  {
+    "iso": "SYR",
+    "country": "Syria",
+    "book": "Damascus Nights",
+    "author": "Schami",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "760"
+  },
+  {
+    "iso": "TWN",
+    "country": "Taiwan",
+    "book": "Wild Kids",
+    "author": "Chang",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "158"
+  },
+  {
+    "iso": "TJK",
+    "country": "Tajikistan",
+    "book": "The Life and Extraordinary Adventures of Private Ivan Chonkin",
+    "author": "Voinovich",
+    "rating": null,
+    "status": "planned",
+    "alt": "The Sandalwood box: folk tales from Tadzhikistan",
+    "id": "762"
+  },
+  {
+    "iso": "TZA",
+    "country": "Tanzania",
+    "book": "Paradise",
+    "author": "Gurnah",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "834"
+  },
+  {
+    "iso": "THA",
+    "country": "Thailand",
+    "book": "Bangkok Wakes to Rain",
+    "author": "Sudbanthad",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "764"
+  },
+  {
+    "iso": "TLS",
+    "country": "Timor-Leste",
+    "book": "The Crossing: A Story of East Timor",
+    "author": "Cardoso",
+    "rating": null,
+    "status": "arrived",
+    "alt": null,
+    "id": "626"
+  },
+  {
+    "iso": "TGO",
+    "country": "Togo",
+    "book": "An African in Greenland",
+    "author": "Kpomassie",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "768"
+  },
+  {
+    "iso": "TON",
+    "country": "Tonga",
+    "book": "We Are the Ocean: Selected Works",
+    "author": "Hau‘ofa",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "776"
+  },
+  {
+    "iso": "TTO",
+    "country": "Trinidad and Tobago",
+    "book": "When We Were Birds",
+    "author": "Banwo",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "780"
+  },
+  {
+    "iso": "TUN",
+    "country": "Tunisia",
+    "book": "Lion Mountain",
+    "author": "Tlili",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "788"
+  },
+  {
+    "iso": "TUR",
+    "country": "Turkey",
+    "book": "The Time Regulation Institute",
+    "author": "Tampinar",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "792"
+  },
+  {
+    "iso": "TKM",
+    "country": "Turkmenistan",
+    "book": "The Tale of Aypi",
+    "author": "Welsapar",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "795"
+  },
+  {
+    "iso": "TUV",
+    "country": "Tuvalu",
+    "book": "Songs of Tuvalu",
+    "author": "Koch",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "798"
+  },
+  {
+    "iso": "UGA",
+    "country": "Uganda",
+    "book": "Abyssinian Chronicles",
+    "author": "Isegawa",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "800"
+  },
+  {
+    "iso": "UKR",
+    "country": "Ukraine",
+    "book": "Grey Bees",
+    "author": "Kurkov",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "804"
+  },
+  {
+    "iso": "ARE",
+    "country": "United Arab Emirates",
+    "book": "The Sand Fish",
+    "author": "Gargash",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "784"
+  },
+  {
+    "iso": "GBR",
+    "country": "United Kingdom",
+    "book": "Rendezvous with Rama",
+    "author": "Clarke",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "826"
+  },
+  {
+    "iso": "USA",
+    "country": "United States",
+    "book": "The Grapes of Wrath",
+    "author": "Steinbeck",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "840"
+  },
+  {
+    "iso": "URY",
+    "country": "Uruguay",
+    "book": "The Ship of Fools",
+    "author": "Rossi",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "858"
+  },
+  {
+    "iso": "UZB",
+    "country": "Uzbekistan",
+    "book": "The Devils' Dance",
+    "author": "Ismailov",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "860"
+  },
+  {
+    "iso": "VUT",
+    "country": "Vanuatu",
+    "book": "Beyond Pandemonium",
+    "author": "Lini",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "548"
+  },
+  {
+    "iso": "VEN",
+    "country": "Venezuela",
+    "book": "Doña Barbara",
+    "author": "Gallegos",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "862"
+  },
+  {
+    "iso": "VNM",
+    "country": "Vietnam",
+    "book": "Paradise of the Blind",
+    "author": "Thu Huong",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "704"
+  },
+  {
+    "iso": "YEM",
+    "country": "Yemen",
+    "book": "A Land Without Jasmine",
+    "author": "al Ahdal",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "887"
+  },
+  {
+    "iso": "ZMB",
+    "country": "Zambia",
+    "book": "A Cowrie of Hope",
+    "author": "Sinyangwe",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "894"
+  },
+  {
+    "iso": "ZWE",
+    "country": "Zimbabwe",
+    "book": "The House of Hunger",
+    "author": "Marechera",
+    "rating": null,
+    "status": "planned",
+    "alt": null,
+    "id": "716"
+  }
+]
