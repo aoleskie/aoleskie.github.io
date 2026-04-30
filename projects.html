@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects · Austin Oleskie</title>
+  <title>Projects · Latent Structure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -18,7 +18,7 @@
 
   <div class="shell">
     <nav class="top">
-      <div class="mark"><a href="index.html"><span class="dot"></span>oleskie<em>·</em>lab</a></div>
+      <div class="mark"><a href="index.html"><span class="dot"></span>Latent<em>·</em>Structure</a><span class="tagline">A personal site for projects, writing, and things I'm still figuring out.</span></div>
       <ul>
         <li><a href="index.html">index</a></li>
         <li><a href="projects.html" class="active">projects</a></li>
@@ -29,20 +29,154 @@
 
     <main>
       <section class="hero">
-        <div class="meta reveal"><span>projects</span><span>n = 4</span></div>
+        <div class="meta reveal"><span>projects</span><span>across four genres</span></div>
         <h1 class="reveal d1">
           <span class="first">Things</span>
           <span class="last">made</span>
         </h1>
         <p class="lede reveal d2">
-          Longer writeups of the work I've done. Each one is a story about a question
-          someone wanted answered and the toolchain I built to answer it.
+          Longer writeups of work I've done — research, side projects, things
+          I've been reading. Filter by category or scroll the whole list.
         </p>
       </section>
 
-      <!-- ─── project: stiffness ─── -->
+      <!-- ─── filter + grid ─── -->
+      <section style="padding-top: 0;">
+        <div class="filters" role="tablist" aria-label="Filter projects by category">
+          <button class="filter-pill active" data-filter="all">all <span class="count">8</span></button>
+          <button class="filter-pill" data-filter="research">research <span class="count">3</span></button>
+          <button class="filter-pill" data-filter="data">data <span class="count">2</span></button>
+          <button class="filter-pill" data-filter="tools">tools <span class="count">2</span></button>
+          <button class="filter-pill" data-filter="reading">reading <span class="count">1</span></button>
+        </div>
+
+        <!-- ── research ── -->
+        <div class="category-heading" data-category="research">
+          <h3>Research</h3>
+          <span class="count">peer-reviewed &amp; in-preparation work</span>
+        </div>
+        <div class="grid-projects">
+
+          <a class="card featured" data-category="research" href="#stiffness">
+            <span class="status-badge" data-status="wip">wip</span>
+            <span class="tag">stochastic modeling · python</span>
+            <h3>Substrate stiffness &amp; drug tolerance</h3>
+            <p>How does ECM stiffness drive cancer cells toward tolerating EGFR
+              inhibitors? A stochastic, mechanistic model of cell fate.</p>
+            <span class="arrow">read writeup</span>
+          </a>
+
+          <a class="card" data-category="research" href="#wgcna">
+            <span class="status-badge" data-status="done">done</span>
+            <span class="tag">transcriptomics · R</span>
+            <h3>WGCNA on melanoma RNA-seq</h3>
+            <p>Co-expression network analysis as orthogonal support for a TFCP2L1
+              finding in CXCR2-driven melanoma. Published 2023.</p>
+            <span class="arrow">read writeup</span>
+          </a>
+
+          <a class="card" data-category="research" href="#em">
+            <span class="status-badge" data-status="done">done</span>
+            <span class="tag">structural biology · em</span>
+            <h3>Arrestin recruitment, by EM</h3>
+            <p>Earlier work in the Skiniotis lab: visualizing arrestin recruitment
+              to a GPCR. Published in <em>Nature</em>, 2014.</p>
+            <span class="arrow">read writeup</span>
+          </a>
+
+        </div>
+
+        <!-- ── data ── -->
+        <div class="category-heading" data-category="data">
+          <h3>Data</h3>
+          <span class="count">analysis projects</span>
+        </div>
+        <div class="grid-projects">
+
+          <a class="card" data-category="data" href="#biotech-funding">
+            <span class="status-badge" data-status="ongoing">ongoing</span>
+            <span class="tag">science policy · python</span>
+            <h3>Biotech funding patterns</h3>
+            <p>Tracking how NIH grants, venture capital, and IPO activity have moved
+              across biotech subsectors over the last decade.</p>
+            <span class="arrow">read writeup</span>
+          </a>
+
+          <a class="card" data-category="data" href="#board-composition">
+            <span class="status-badge" data-status="ongoing">ongoing</span>
+            <span class="tag">governance · python</span>
+            <h3>Biotech board composition</h3>
+            <p>Who sits on the boards of public biotech companies, and how often the
+              same names show up across multiple boards.</p>
+            <span class="arrow">read writeup</span>
+          </a>
+
+        </div>
+
+        <!-- ── tools ── -->
+        <div class="category-heading" data-category="tools">
+          <h3>Tools</h3>
+          <span class="count">things that do something</span>
+        </div>
+        <div class="grid-projects">
+
+          <a class="card" data-category="tools" href="#career-scraper">
+            <span class="status-badge" data-status="ongoing">ongoing</span>
+            <span class="tag">utility · python</span>
+            <h3>Career scraper</h3>
+            <p>Scrapes job postings from a curated list of biotech &amp; data-science
+              company career pages, deduplicates them, and surfaces what's new.</p>
+            <span class="arrow">read writeup</span>
+          </a>
+
+          <a class="card" data-category="tools" href="demos/hearts.html">
+            <span class="status-badge" data-status="wip">wip</span>
+            <span class="tag">interactive · javascript</span>
+            <h3>Hearts (and eventually Star Realms)</h3>
+            <p>A browser implementation of Hearts with a basic AI opponent.
+              Long-term: Star Realms.</p>
+            <span class="arrow">play it</span>
+          </a>
+
+          <a class="card" data-category="tools" href="demos/two-state-switch.html">
+            <span class="status-badge" data-status="done">done</span>
+            <span class="tag">interactive · javascript</span>
+            <h3>A noisy two-state switch</h3>
+            <p>Live demo: a stochastic two-state model that you can perturb. Change
+              the parameters and watch the trajectories.</p>
+            <span class="arrow">play with it</span>
+          </a>
+
+        </div>
+
+        <!-- ── reading ── -->
+        <div class="category-heading" data-category="reading">
+          <h3>Reading</h3>
+          <span class="count">slow projects</span>
+        </div>
+        <div class="grid-projects">
+
+          <a class="card" data-category="reading" href="reading/">
+            <span class="status-badge" data-status="ongoing">ongoing</span>
+            <span class="tag">books · in progress</span>
+            <h3>A book from every country</h3>
+            <p>Reading at least one book from every country in the world. Probably
+              a multi-year project. Running list with notes.</p>
+            <span class="arrow">see the list</span>
+          </a>
+
+        </div>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ═══════════════════════════════════════════════════════
+           writeups
+           ═══════════════════════════════════════════════════════ -->
+
+      <!-- ─── stiffness ─── -->
       <section id="stiffness">
-        <div class="eyebrow">project · 01</div>
+        <div class="eyebrow">research · 01</div>
         <h2><em>Substrate stiffness</em> as a tuning knob for therapeutic tolerance.</h2>
         <p>
           Non-small-cell lung cancer cells respond to EGFR inhibitors very differently
@@ -56,11 +190,12 @@
           <code>PySB</code>, parameterized it with in-vitro measurements of mitotic
           time, quiescence, and death, and ran it across thousands of
           <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie</a>
-          trajectories per condition. ODEs failed to capture the full behavior of the system; the cell population had
-          measurably more access to a fast-dividing attractor.
+          trajectories per condition. ODEs failed to capture the full behavior of
+          the system; the cell population had measurably more access to a
+          fast-dividing attractor.
         </p>
 
-        <pre><code># sketch: simulating one stiffness condition
+<pre><code># sketch: simulating one stiffness condition
 from pysb.simulator import StochKitSimulator
 sim = StochKitSimulator(model, tspan=tspan)
 results = sim.run(
@@ -77,28 +212,26 @@ trajectories = results.dataframe</code></pre>
 
       <hr class="dashed" />
 
-      <!-- ─── project: wgcna ─── -->
+      <!-- ─── wgcna ─── -->
       <section id="wgcna">
-        <div class="eyebrow">project · 02</div>
+        <div class="eyebrow">research · 02</div>
         <h2><em>Co-expression networks</em> on melanoma RNA-seq.</h2>
         <p>
-          A collaboration with the Richmond and Quaranta labs studying CXCR2-driven melanoma. Bulk RNA-seq from
-          Braf/Pten tumors
-          with and without Cxcr2 knockout — the question was which transcriptional programs sit downstream of the
-          receptor.
-          My contribution was the WGCNA portion of the analysis: building gene co-expression modules from the tumor
-          RNA-seq,
-          ranking transcription factors by their centrality to each module, and testing which modules were significantly
-          different
-          between wild-type and knockout. The analysis served as orthogonal support for a TFCP2L1 finding the rest of
-          the team had
-          identified through differential expression — placing TFCP2L1 at the center of a skin-development module that
-          was
-          upregulated in Cxcr2-null tumors. Published as part of <a class="inline" href="publications.html">Yang et al.,
-            <em>Mol Cancer</em>, 2023</a>.
+          A collaboration with the Richmond and Quaranta labs studying CXCR2-driven
+          melanoma. Bulk RNA-seq from <em>Braf/Pten</em> tumors with and without
+          <em>Cxcr2</em> knockout — the question was which transcriptional programs
+          sit downstream of the receptor. My contribution was the WGCNA portion of
+          the analysis: building gene co-expression modules from the tumor RNA-seq,
+          ranking transcription factors by their centrality to each module, and
+          testing which modules were significantly different between wild-type and
+          knockout. The analysis served as orthogonal support for a TFCP2L1 finding
+          the rest of the team had identified through differential expression —
+          placing TFCP2L1 at the center of a skin-development module that was
+          upregulated in <em>Cxcr2</em>-null tumors. Published as part of
+          <a class="inline" href="publications.html">Yang et al., <em>Mol Cancer</em>, 2023</a>.
         </p>
 
-        <pre><code># module detection, abridged
+<pre><code># module detection, abridged
 library(WGCNA)
 sft <- pickSoftThreshold(expr, powerVector = 1:20)
 net <- blockwiseModules(
@@ -108,65 +241,170 @@ net <- blockwiseModules(
   minModuleSize = 30,
   mergeCutHeight = 0.25
 )</code></pre>
-
       </section>
 
       <hr class="dashed" />
 
-      <!-- ─── project: em ─── -->
+      <!-- ─── em ─── -->
       <section id="em">
-        <div class="eyebrow">project · 03</div>
+        <div class="eyebrow">research · 03</div>
         <h2><em>Arrestin recruitment,</em> visualized.</h2>
         <p>
           Long before the modeling work, I spent two years in the Skiniotis lab
           collecting electron micrographs of protein assemblies. The headline
-          paper was a structure of a <a class="inline" href="https://www.nature.com/articles/nature13430">GPCR–arrestin
-            complex</a>
-          that helped settle a long-standing question about how arrestin binds EGFR
-          — published in <em>Nature</em> in 2014.
+          paper was a structure of a
+          <a class="inline" href="https://www.nature.com/articles/nature13430">GPCR–arrestin complex</a>
+          that helped settle a long-standing question about how arrestin gets
+          recruited to a G-protein coupled receptor — published in <em>Nature</em>
+          in 2014.
         </p>
         <p>
           Quieter contributions on the side: visualizing factor VIII bound to von
-          Willebrand factor (with the Ginsburg lab), and the architecture
-          of VPS13.
+          Willebrand factor (with the Ginsburg lab), and the architecture of VPS13.
         </p>
       </section>
 
       <hr class="dashed" />
 
-      <!-- ─── project: demo ─── -->
-      <section id="demo">
-        <div class="eyebrow">project · 04</div>
+      <!-- ─── biotech funding ─── -->
+      <section id="biotech-funding">
+        <div class="eyebrow">data · 01</div>
+        <h2><em>Biotech funding</em> patterns.</h2>
+        <p>
+          A side project tracking how money moves through biotech: NIH grant
+          allocations by area, venture-capital flow into therapeutic categories,
+          and IPO activity by year and subsector. Mostly an exercise in pulling
+          public data from places that don't make it easy — NIH RePORTER, SEC
+          EDGAR, Crunchbase exports — into a shape where year-over-year shifts
+          are actually visible.
+        </p>
+        <p>
+          Writeup forthcoming. The interesting questions: which therapeutic
+          areas are persistently overfunded relative to disease burden, and where
+          the gap between academic interest and venture interest is widest.
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── board composition ─── -->
+      <section id="board-composition">
+        <div class="eyebrow">data · 02</div>
+        <h2><em>Board composition</em> in public biotech.</h2>
+        <p>
+          Who sits on the boards of public biotech companies, and how often the
+          same names show up across multiple boards. Pulling director rosters
+          from SEC proxy filings (DEF 14A), building a graph where companies are
+          nodes connected by shared directors, and looking at the structure.
+        </p>
+        <p>
+          Writeup forthcoming. The questions worth asking: how concentrated is
+          the director pool, what fraction of new biotech boards include someone
+          already on three or more, and whether interlock patterns predict
+          anything about company outcomes.
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── career scraper ─── -->
+      <section id="career-scraper">
+        <div class="eyebrow">tools · 01</div>
+        <h2><em>A career scraper.</em></h2>
+        <p>
+          Built for myself during the job search. A small Python pipeline that
+          scrapes the careers pages of a curated set of companies (mostly biotech,
+          some data-science), normalizes the postings into a common schema,
+          deduplicates them, and flags what's new since the last run. Output is
+          a single CSV I can sort and filter.
+        </p>
+        <p>
+          The hard part wasn't scraping — it was that every company's careers
+          page is built differently. About a third use Greenhouse, a third use
+          Lever, and the rest each have their own bespoke setup. So the
+          architecture is a base scraper class with per-platform subclasses, and
+          one-off subclasses for the holdouts.
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── hearts ─── -->
+      <section id="hearts">
+        <div class="eyebrow">tools · 02</div>
+        <h2><em>Hearts</em> in the browser.</h2>
+        <p>
+          A browser implementation of the card game Hearts. Three AI opponents,
+          rules-correct scoring (queen of spades = 13, hearts = 1, shoot the moon
+          = 26 to everyone else), and pass-three-cards at the start of every hand
+          except every fourth. Built mostly to teach myself game-state management
+          in plain JavaScript without a framework.
+        </p>
+        <p>
+          The longer-term plan is to extend the same engine to Star Realms — a
+          deckbuilder with a richer action space and a more interesting target
+          for an AI opponent. Hearts is the warmup.
+        </p>
+        <p>
+          <a class="btn primary" href="demos/hearts.html">play hearts →</a>
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── two-state demo ─── -->
+      <section id="two-state">
+        <div class="eyebrow">tools · 03</div>
         <h2><em>An interactive</em> two-state switch.</h2>
         <p>
-          Built as a teaching aid: a tiny in-browser stochastic simulator. Two states,
-          forward and reverse rates, a population of independent cells.
+          Built as a teaching aid: a tiny in-browser stochastic simulator. Two
+          states, forward and reverse rates, a population of independent cells.
           Implemented in vanilla JS so it just works.
         </p>
         <p>
           <a class="btn primary" href="demos/two-state-switch.html">open the demo →</a>
         </p>
       </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── reading ─── -->
+      <section id="reading">
+        <div class="eyebrow">reading · 01</div>
+        <h2><em>A book</em> from every country.</h2>
+        <p>
+          A long, slow project: reading at least one book by an author from every
+          country in the world. Some are easy (Argentina, Japan, Nigeria — every
+          bookstore stocks them). Some are genuinely hard to find in English
+          translation, and that's where the project gets interesting.
+        </p>
+        <p>
+          The full running list, with short notes on each book, lives on its own
+          page so it can grow without crowding everything else.
+        </p>
+        <p>
+          <a class="btn primary" href="reading/">see the running list →</a>
+        </p>
+      </section>
     </main>
 
     <footer>
       <div class="colophon">
-        <strong>oleskie.lab</strong> · set in <em>Fraunces</em>, <em>Newsreader</em>,
-        and <em>JetBrains Mono</em>. Background is a small stochastic process
-        (~40 particles, Brownian motion with light damping). Last updated April 2026.
+        <strong>Latent Structure</strong> · these writeups are my own; collaborators
+        are named in the linked publications. Last updated April 2026.
       </div>
       <div class="links">
         <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
         <a href="https://github.com/aoleskie">github</a>
         <a
-          href="https://scholar.google.com/citations?hl=en&user=KjXvl_oAAAAJ&view_op=list_works&gmla=AIqSsVuDvJ87dx4aifz9MTrtX6MfJv5J8pbEFMWkEYYTjitiVb8yt_DgWRZy1NHKKY92F_BEBjH-Nt3YDxhJ_txv">google
-          scholar</a>
+          href="https://scholar.google.com/citations?hl=en&user=KjXvl_oAAAAJ&view_op=list_works&gmla=AIqSsVuDvJ87dx4aifz9MTrtX6MfJv5J8pbEFMWkEYYTjitiVb8yt_DgWRZy1NHKKY92F_BEBjH-Nt3YDxhJ_txv">google scholar</a>
         <a href="https://www.linkedin.com/in/austin-oleskie/">linkedin</a>
       </div>
     </footer>
   </div>
 
   <script src="assets/main.js"></script>
+  <script src="assets/projects.js"></script>
 </body>
 
 </html>

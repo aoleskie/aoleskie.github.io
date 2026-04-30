@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hearts · Latent Structure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="shell">
+    <nav class="top">
+      <div class="mark"><a href="../index.html"><span class="dot"></span>Latent<em>·</em>Structure</a><span class="tagline">A personal site for projects, writing, and things I'm still figuring out.</span></div>
+      <ul>
+        <li><a href="../index.html">index</a></li>
+        <li><a href="../projects.html" class="active">projects</a></li>
+        <li><a href="../blog/">writing</a></li>
+        <li><a href="../publications.html">papers</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="article" style="max-width: 720px;">
+        <header class="reveal">
+          <div class="date">interactive · in progress</div>
+          <h1>Hearts.</h1>
+        </header>
+
+        <p class="lede reveal d1">
+          Coming soon. A browser implementation of Hearts with three AI
+          opponents, written in plain JavaScript.
+        </p>
+
+        <h2>What's planned</h2>
+        <p>
+          Standard four-player Hearts. Pass three cards left, then right,
+          then across, then no pass — repeating. Hearts can't lead until
+          they've been broken. Queen of spades is 13 points; each heart
+          is 1; shoot the moon flips the score. The game ends when someone
+          crosses 100.
+        </p>
+
+        <h2>The harder bit: AI</h2>
+        <p>
+          The interesting half of the project isn't rendering cards — it's
+          giving the three opponents a sensible play policy. The plan is
+          to start with a hand-coded heuristic (avoid taking points, dump
+          the queen on the leader, track which suits each player is void in)
+          and see how far that gets before reaching for a search-based
+          approach.
+        </p>
+
+        <h2>And then Star Realms</h2>
+        <p>
+          The longer-term goal is to extend the same engine to Star Realms,
+          a deckbuilder with a richer action space. Hearts is the warmup
+          for that — once card layout, turn management, and the AI scaffolding
+          all work for one card game, the second one is mostly content.
+        </p>
+
+        <p>
+          <a class="btn" href="../projects.html">← back to projects</a>
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <div class="colophon">
+        <strong>Latent Structure</strong> · this page is a placeholder until the
+        game is playable. Check back later.
+      </div>
+      <div class="links">
+        <a href="../projects.html">← projects</a>
+        <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/main.js"></script>
+</body>
+
+</html>

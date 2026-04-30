@@ -1,9 +1,4 @@
-/* ─────────────────────────────────────────────────────────────
-   stochastic particle field
-   small homage to the research — particles random-walk
-   with subtle drift, low opacity so it doesn't fight content
-   ───────────────────────────────────────────────────────────── */
-
+/* stochastic particle field — Brownian-ish motion with light damping */
 (function () {
   const canvas = document.getElementById("particles");
   if (!canvas) return;
@@ -41,8 +36,6 @@
 
   function step() {
     ctx.clearRect(0, 0, w, h);
-
-    // draw faint connecting lines first
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const a = particles[i], b = particles[j];
@@ -59,22 +52,15 @@
         }
       }
     }
-
-    // draw + step particles
     for (const p of particles) {
-      // brownian-ish kick
       p.vx += (Math.random() - 0.5) * 0.04;
       p.vy += (Math.random() - 0.5) * 0.04;
-      // damping
       p.vx *= 0.96; p.vy *= 0.96;
       p.x += p.vx; p.y += p.vy;
-
-      // wrap
       if (p.x < -10) p.x = w + 10;
       if (p.x > w + 10) p.x = -10;
       if (p.y < -10) p.y = h + 10;
       if (p.y > h + 10) p.y = -10;
-
       ctx.beginPath();
       ctx.fillStyle = p.c;
       ctx.globalAlpha = p.a;
@@ -82,28 +68,12 @@
       ctx.fill();
       ctx.globalAlpha = 1;
     }
-
     requestAnimationFrame(step);
   }
 
-  // respect reduced motion
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce) {
-    init();
-    // draw one static frame
-    ctx.clearRect(0, 0, w, h);
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.fillStyle = p.c;
-      ctx.globalAlpha = p.a;
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    ctx.globalAlpha = 1;
-  } else {
-    init();
-    step();
-  }
+  init();
+  if (!reduce) step();
 
   let resizeTimer;
   window.addEventListener("resize", () => {
