@@ -1,21 +1,27 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Austin Oleskie · computational biologist</title>
-  <meta name="description" content="Austin Oleskie — computational biologist working on stochastic models, transcriptomics, and the messy edges where biology meets code." />
+  <meta name="description"
+    content="Austin Oleskie — computational biologist working on stochastic models, transcriptomics, and other fun projects." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
   <canvas id="particles"></canvas>
 
   <div class="shell">
     <nav class="top">
-      <div class="mark"><a href="index.html"><span class="dot"></span>oleskie<em>·</em>lab</a></div>
+      <div class="mark"><a href="index.html"><span class="dot"></span>Latent Structure: </a><span class="tagline">A
+          personal site for projects, writing, and things I'm still figuring out.</span></div>
       <ul>
         <li><a href="index.html" class="active">index</a></li>
         <li><a href="projects.html">projects</a></li>
@@ -37,11 +43,13 @@
           <span class="last">Oleskie</span>
         </h1>
         <p class="lede reveal d2">
-          I'm a computational biologist working at the intersection of <strong>stochastic
-          modeling</strong>, <strong>transcriptomics</strong>, and the messy real-world
-          datasets that don't behave the way textbooks say they should. Recently finished
+          I'm a computational biologist with a love for <strong>stochastic modeling</strong>,
+          <strong>transcriptomics</strong>, and how weird biology is. I recently finished
           an NIH-funded postdoc at <a class="inline" href="https://www.vanderbilt.edu/">Vanderbilt</a>;
-          now in Cambridge, looking for what's next.
+          now located in Cambridge and looking for what's next.<br>
+          <br>
+          When I'm not behind a computer, you can find me either lost in a good book
+          or the middle of the woods.
         </p>
         <div class="actions reveal d3">
           <a class="btn primary" href="mailto:oleskiea@gmail.com">say hello →</a>
@@ -64,31 +72,30 @@
       <section>
         <div class="eyebrow">selected work</div>
         <h2>Things I've been making.</h2>
-        <p>A few projects worth lingering on. Full list <a class="inline" href="projects.html">here</a>.</p>
+        <p>Some projects I've enjoyed working on. Full list <a class="inline" href="projects.html">here</a>.</p>
 
         <div class="grid-projects">
           <a class="card featured" href="projects.html#stiffness">
             <span class="tag">stochastic modeling · python</span>
             <h3>Substrate stiffness &amp; drug tolerance</h3>
-            <p>How does the stiffness of the surrounding ECM tilt cancer cells toward
-            tolerating EGFR inhibitors? A stochastic, mechanistic model of the cell-cycle
-            decision answers in trajectories, not averages.</p>
+            <p>How does the stiffness of the surrounding ECM drive cancer cells toward
+              tolerating EGFR inhibitors? A stochastic, mechanistic model of cell fate.</p>
             <span class="arrow">read writeup</span>
           </a>
 
           <a class="card" href="projects.html#wgcna">
             <span class="tag">transcriptomics · R</span>
             <h3>WGCNA on melanoma RNA-seq</h3>
-            <p>Co-expression network analysis on tens of thousands of genes — finding
-            modules that correlate with tumor growth phenotypes in CXCR2-driven melanoma.</p>
+            <p>Gene co-expression network analysis — finding modules that correlate
+              with tumor growth phenotypes in CXCR2-driven melanoma.</p>
             <span class="arrow">read writeup</span>
           </a>
 
           <a class="card" href="demos/two-state-switch.html">
             <span class="tag">interactive · javascript</span>
             <h3>A noisy two-state switch</h3>
-            <p>Live demo: a stochastic two-state model that you can perturb. Tweak the
-            rates, watch the trajectories, build intuition for why averages lie.</p>
+            <p>Live demo: a stochastic two-state model that you can perturb. Change the
+              parameters and watch the trajectories.</p>
             <span class="arrow">play with it</span>
           </a>
 
@@ -96,7 +103,7 @@
             <span class="tag">structural biology · em</span>
             <h3>Arrestin recruitment, by EM</h3>
             <p>Earlier work in the Skiniotis lab: visualizing how arrestin gets recruited
-            to a GPCR. Published in <em>Nature</em>, 2014.</p>
+              to a GPCR. Published in <em>Nature</em>, 2014.</p>
             <span class="arrow">read writeup</span>
           </a>
         </div>
@@ -107,8 +114,8 @@
       <!-- ─── writing ─── -->
       <section>
         <div class="eyebrow">recent writing</div>
-        <h2>Notes from the lab notebook.</h2>
-        <p>Short explainers, mostly written so I'd remember things later.</p>
+        <h2>In the margins.</h2>
+        <p>Notes and explainers from around the work.</p>
 
         <div class="posts">
           <a class="post-link" href="blog/stochastic-cell-fate.html">
@@ -141,7 +148,8 @@
           <li>
             <div class="num"><span class="yr">2026</span> wip</div>
             <div>
-              <div class="title">Substrate stiffness promotes tolerance to EGFR inhibition by enabling cell access to a fast-dividing state</div>
+              <div class="title">Substrate stiffness promotes tolerance to EGFR inhibition by enabling cell access to a
+                fast-dividing state</div>
               <div class="authors"><strong>Oleskie AN</strong>, Marlhens J, Tyson D, Quaranta V, Harris L</div>
               <div class="venue">in preparation</div>
             </div>
@@ -149,8 +157,10 @@
           <li>
             <div class="num"><span class="yr">2023</span> 02</div>
             <div>
-              <div class="title">CXCR2 expression during melanoma tumorigenesis controls transcriptional programs that facilitate tumor growth</div>
-              <div class="authors">Yang J, Bergdorf K, Yan C, Luo W, Chen SC, Ayers GD, Liu Q, Liu X, Boothby M, Weiss VL, Groves SM, <strong>Oleskie AN</strong>, Zhang X, Maeda DY, Zebala JA, Quaranta V, Richmond A</div>
+              <div class="title">CXCR2 expression during melanoma tumorigenesis controls transcriptional programs that
+                facilitate tumor growth</div>
+              <div class="authors">Yang J, Bergdorf K, Yan C, Luo W, Chen SC, Ayers GD, Liu Q, Liu X, Boothby M, Weiss
+                VL, Groves SM, <strong>Oleskie AN</strong>, Zhang X, Maeda DY, Zebala JA, Quaranta V, Richmond A</div>
               <div class="venue">Mol Cancer · 22(1):92</div>
             </div>
           </li>
@@ -158,7 +168,8 @@
             <div class="num"><span class="yr">2014</span> 03</div>
             <div>
               <div class="title">Visualization of arrestin recruitment by a G-protein coupled receptor</div>
-              <div class="authors">Shukla AK, Westfield GH, Xiao K, … <strong>Oleskie AN</strong>, … Kobilka BK, Skiniotis G, Lefkowitz RJ</div>
+              <div class="authors">Shukla AK, Westfield GH, Xiao K, … <strong>Oleskie AN</strong>, … Kobilka BK,
+                Skiniotis G, Lefkowitz RJ</div>
               <div class="venue">Nature · 512(7513):218–22</div>
             </div>
           </li>
@@ -170,18 +181,20 @@
       <div class="colophon">
         <strong>oleskie.lab</strong> · set in <em>Fraunces</em>, <em>Newsreader</em>,
         and <em>JetBrains Mono</em>. Background is a small stochastic process
-        (~38 particles, brownian kick, light damping) — a quiet nod to what I
-        actually study. Last updated April 2026.
+        (~40 particles, Brownian motion with light damping). Last updated April 2026.
       </div>
       <div class="links">
         <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
-        <a href="https://github.com/">github</a>
-        <a href="https://scholar.google.com/">google scholar</a>
-        <a href="https://www.linkedin.com/">linkedin</a>
+        <a href="https://github.com/aoleskie">github</a>
+        <a
+          href="https://scholar.google.com/citations?hl=en&user=KjXvl_oAAAAJ&view_op=list_works&gmla=AIqSsVuDvJ87dx4aifz9MTrtX6MfJv5J8pbEFMWkEYYTjitiVb8yt_DgWRZy1NHKKY92F_BEBjH-Nt3YDxhJ_txv">google
+          scholar</a>
+        <a href="https://www.linkedin.com/in/austin-oleskie/">linkedin</a>
       </div>
     </footer>
   </div>
 
   <script src="assets/main.js"></script>
 </body>
+
 </html>
