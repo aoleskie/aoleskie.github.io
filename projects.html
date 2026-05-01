@@ -18,7 +18,8 @@
 
   <div class="shell">
     <nav class="top">
-      <div class="mark"><a href="index.html"><span class="dot"></span>In<em>·</em>Aggregate</a><span class="tagline">A personal site for projects, writing, and things I'm still figuring out.</span></div>
+      <div class="mark"><a href="index.html"><span class="dot"></span>In<em>·</em>Aggregate</a><span class="tagline">A
+          personal site for projects, writing, and things I'm still figuring out.</span></div>
       <ul>
         <li><a href="index.html">index</a></li>
         <li><a href="projects.html" class="active">projects</a></li>
@@ -35,9 +36,12 @@
           <span class="last">made</span>
         </h1>
         <p class="lede reveal d2">
-          Longer writeups of work I've done — research, side projects, things
-          I've been reading. Filter by category or scroll the whole list.
-        </p>
+          Longer writeups of the work I've done, both at the bench and away
+          from it. The categories below sort the projects by what kind of
+          thing they are: peer-reviewed research, data analyses I've taken on
+          for my own curiosity, small tools I've built, and a slow-burning
+          reading project. Filter to whatever you're interested in, or just
+          scroll.</p>
       </section>
 
       <!-- ─── filter + grid ─── -->
@@ -179,23 +183,28 @@
         <div class="eyebrow">research · 01</div>
         <h2><em>Substrate stiffness</em> as a tuning knob for therapeutic tolerance.</h2>
         <p>
-          Non-small-cell lung cancer cells respond to EGFR inhibitors very differently
-          depending on the mechanical stiffness of the substrate around them. Soft
-          environments — like healthy lung — sensitize the cells. Stiff environments —
-          like tumor stroma — let some cells survive and keep dividing. The question
-          was <em>why</em>.
+          Non-small cell lung cancer cells respond to EGFR inhibitors very
+          differently depending on the mechanical stiffness of the substrate
+          they're growing on. Soft environments like healthy lung tissue tend
+          to sensitize the cells; stiff environments like tumor stroma let
+          some of them survive and keep dividing. The question I spent most
+          of my postdoc on was <em>why</em>.
         </p>
         <p>
-          I built a stochastic, mechanistic model of the cell fate decision in
-          <code>PySB</code>, parameterized it with in-vitro measurements of mitotic
-          time, quiescence, and death, and ran it across thousands of
-          <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie</a>
-          trajectories per condition. ODEs failed to capture the full behavior of
-          the system; the cell population had measurably more access to a
-          fast-dividing attractor.
+          The approach was a stochastic, mechanistic model of the cell-fate
+          decision built in <code>PySB</code>, parameterized with in-vitro
+          measurements of mitotic time, quiescence, and death, and run across
+          thousands of <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie</a>
+          trajectories per condition. A deterministic model of the same
+          network missed something important: averaged over a population, the
+          cells looked uniformly suppressed by the drug, but the stochastic
+          version showed that a small fraction were slipping into a
+          fast-dividing state and proliferating from there. That fraction is
+          small, but it's also a meaningful piece of why the drug isn't
+          curative on its own.
         </p>
 
-<pre><code># sketch: simulating one stiffness condition
+        <pre><code># sketch: simulating one stiffness condition
 from pysb.simulator import StochKitSimulator
 sim = StochKitSimulator(model, tspan=tspan)
 results = sim.run(
@@ -217,21 +226,23 @@ trajectories = results.dataframe</code></pre>
         <div class="eyebrow">research · 02</div>
         <h2><em>Co-expression networks</em> on melanoma RNA-seq.</h2>
         <p>
-          A collaboration with the Richmond and Quaranta labs studying CXCR2-driven
-          melanoma. Bulk RNA-seq from <em>Braf/Pten</em> tumors with and without
-          <em>Cxcr2</em> knockout — the question was which transcriptional programs
-          sit downstream of the receptor. My contribution was the WGCNA portion of
-          the analysis: building gene co-expression modules from the tumor RNA-seq,
-          ranking transcription factors by their centrality to each module, and
-          testing which modules were significantly different between wild-type and
-          knockout. The analysis served as orthogonal support for a TFCP2L1 finding
-          the rest of the team had identified through differential expression —
-          placing TFCP2L1 at the center of a skin-development module that was
-          upregulated in <em>Cxcr2</em>-null tumors. Published as part of
+          This was a collaboration with the Richmond and Quaranta labs on a
+          study of CXCR2-driven melanoma. They had bulk RNA-seq from
+          <em>Braf/Pten</em> tumors with and without <em>Cxcr2</em> knockout,
+          and wanted to know which transcriptional programs sit downstream of
+          the receptor. My contribution was the WGCNA portion of the analysis:
+          building gene co-expression modules from the tumor RNA-seq, ranking
+          transcription factors by their centrality to each module, and
+          testing which modules were significantly different between the
+          wild-type and knockout conditions. The analysis served as
+          orthogonal support for a TFCP2L1 finding the rest of the team had
+          identified through differential expression — placing TFCP2L1 at the
+          center of a skin-development module that was upregulated in
+          <em>Cxcr2</em>-null tumors. Published as part of
           <a class="inline" href="publications.html">Yang et al., <em>Mol Cancer</em>, 2023</a>.
         </p>
 
-<pre><code># module detection, abridged
+        <pre><code># module detection, abridged
 library(WGCNA)
 sft <- pickSoftThreshold(expr, powerVector = 1:20)
 net <- blockwiseModules(
@@ -250,17 +261,19 @@ net <- blockwiseModules(
         <div class="eyebrow">research · 03</div>
         <h2><em>Arrestin recruitment,</em> visualized.</h2>
         <p>
-          Long before the modeling work, I spent two years in the Skiniotis lab
-          collecting electron micrographs of protein assemblies. The headline
-          paper was a structure of a
+          Before the modeling work, I spent two years in the Skiniotis lab at
+          Michigan, learning electron microscopy and collecting micrographs
+          of protein assemblies. The paper I'm proudest of from that period
+          is a structure of a
           <a class="inline" href="https://www.nature.com/articles/nature13430">GPCR–arrestin complex</a>
-          that helped settle a long-standing question about how arrestin gets
-          recruited to a G-protein coupled receptor — published in <em>Nature</em>
-          in 2014.
+          that helped settle a long-running question about how arrestin gets
+          recruited to a G-protein coupled receptor — it came out in
+          <em>Nature</em> in 2014.
         </p>
         <p>
-          Quieter contributions on the side: visualizing factor VIII bound to von
-          Willebrand factor (with the Ginsburg lab), and the architecture of VPS13.
+          Other work included a collaboration with the
+          Ginsburg lab visualizing factor VIII bound to von Willebrand factor,
+          and some work on the architecture of VPS13.
         </p>
       </section>
 
@@ -273,15 +286,17 @@ net <- blockwiseModules(
         <p>
           A side project tracking how money moves through biotech: NIH grant
           allocations by area, venture-capital flow into therapeutic categories,
-          and IPO activity by year and subsector. Mostly an exercise in pulling
-          public data from places that don't make it easy — NIH RePORTER, SEC
-          EDGAR, Crunchbase exports — into a shape where year-over-year shifts
-          are actually visible.
+          and IPO activity by year and subsector. The
+          pipeline pulls NIH grant allocations from RePORTER, IPO and S-1
+          filings from SEC EDGAR, and venture-funding data where I can get it
+          cleanly, and stitches everything into something where year-over-year
+          shifts in biotech subsectors are actually visible.
         </p>
         <p>
-          Writeup forthcoming. The interesting questions: which therapeutic
-          areas are persistently overfunded relative to disease burden, and where
-          the gap between academic interest and venture interest is widest.
+          A writeup is forthcoming. The questions I find most interesting are
+          the ones about gaps: which therapeutic areas are persistently
+          overfunded relative to disease burden, and where the gap between
+          academic interest and venture interest is widest.
         </p>
       </section>
 
@@ -292,13 +307,13 @@ net <- blockwiseModules(
         <div class="eyebrow">data · 02</div>
         <h2><em>Board composition</em> in public biotech.</h2>
         <p>
-          Who sits on the boards of public biotech companies, and how often the
+          A companion to the funding project, looking at who sits on the
+          boards of public biotech companies, and how often the
           same names show up across multiple boards. Pulling director rosters
-          from SEC proxy filings (DEF 14A), building a graph where companies are
-          nodes connected by shared directors, and looking at the structure.
+          from SEC proxy filings (DEF 14A).
         </p>
         <p>
-          Writeup forthcoming. The questions worth asking: how concentrated is
+          Writeup forthcoming. Some questions are: how concentrated is
           the director pool, what fraction of new biotech boards include someone
           already on three or more, and whether interlock patterns predict
           anything about company outcomes.
@@ -319,11 +334,12 @@ net <- blockwiseModules(
           a single CSV I can sort and filter.
         </p>
         <p>
-          The hard part wasn't scraping — it was that every company's careers
-          page is built differently. About a third use Greenhouse, a third use
-          Lever, and the rest each have their own bespoke setup. So the
-          architecture is a base scraper class with per-platform subclasses, and
-          one-off subclasses for the holdouts.
+          The hard part wasn't the scraping itself. It was that every
+          company's careers page is built differently: about a third use
+          Greenhouse, a third use Lever, and the rest each have their own
+          bespoke setup that needs its own parser. The architecture ended up
+          being a base scraper class with per-platform subclasses and a small
+          handful of one-off classes for the holdouts.
         </p>
       </section>
 
@@ -334,16 +350,17 @@ net <- blockwiseModules(
         <div class="eyebrow">tools · 02</div>
         <h2><em>Hearts</em> in the browser.</h2>
         <p>
-          A browser implementation of the card game Hearts. Three AI opponents,
-          rules-correct scoring (queen of spades = 13, hearts = 1, shoot the moon
-          = 26 to everyone else), and pass-three-cards at the start of every hand
-          except every fourth. Built mostly to teach myself game-state management
-          in plain JavaScript without a framework.
+          A browser implementation of the card game Hearts, with three AI
+          opponents I'm slowly making smarter. Standard four-player rules,
+          the queen of spades is thirteen points, hearts are one each, shoot
+          the moon flips the score onto everyone else. Built mostly so I
+          could teach myself game-state management in plain JavaScript
+          without reaching for a framework.
         </p>
         <p>
-          The longer-term plan is to extend the same engine to Star Realms — a
-          deckbuilder with a richer action space and a more interesting target
-          for an AI opponent. Hearts is the warmup.
+          The longer-term plan is to use the same engine for Star Realms, a
+          deckbuilder with a richer action space and a more interesting
+          opponent to design. I'm using Hearts to learn the ropes.
         </p>
         <p>
           <a class="btn primary" href="demos/hearts.html">play hearts →</a>
@@ -357,9 +374,10 @@ net <- blockwiseModules(
         <div class="eyebrow">tools · 03</div>
         <h2><em>An interactive</em> two-state switch.</h2>
         <p>
-          Built as a teaching aid: a tiny in-browser stochastic simulator. Two
-          states, forward and reverse rates, a population of independent cells.
-          Implemented in vanilla JS so it just works.
+          A simple visualization of a stochastic process. A tiny in-browser stochastic simulator with two states,
+          forward and
+          reverse rates, and a population of independent cells you can push
+          around sliders.
         </p>
         <p>
           <a class="btn primary" href="demos/two-state-switch.html">open the demo →</a>
@@ -374,13 +392,12 @@ net <- blockwiseModules(
         <h2><em>A book</em> from every country.</h2>
         <p>
           A long, slow project: reading at least one book by an author from every
-          country in the world. Some are easy (Argentina, Japan, Nigeria — every
-          bookstore stocks them). Some are genuinely hard to find in English
-          translation, and that's where the project gets interesting.
+          country in the world. Part of the fun has been the research building the
+          list in the first place. Once I'm done, maybe I'll start again.
         </p>
         <p>
-          The full running list, with short notes on each book, lives on its own
-          page so it can grow without crowding everything else.
+          The full running list lives on its own page so it can keep growing
+          without crowding out everything else.
         </p>
         <p>
           <a class="btn primary" href="reading/">see the running list →</a>
@@ -397,7 +414,8 @@ net <- blockwiseModules(
         <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
         <a href="https://github.com/aoleskie">github</a>
         <a
-          href="https://scholar.google.com/citations?hl=en&user=KjXvl_oAAAAJ&view_op=list_works&gmla=AIqSsVuDvJ87dx4aifz9MTrtX6MfJv5J8pbEFMWkEYYTjitiVb8yt_DgWRZy1NHKKY92F_BEBjH-Nt3YDxhJ_txv">google scholar</a>
+          href="https://scholar.google.com/citations?hl=en&user=KjXvl_oAAAAJ&view_op=list_works&gmla=AIqSsVuDvJ87dx4aifz9MTrtX6MfJv5J8pbEFMWkEYYTjitiVb8yt_DgWRZy1NHKKY92F_BEBjH-Nt3YDxhJ_txv">google
+          scholar</a>
         <a href="https://www.linkedin.com/in/austin-oleskie/">linkedin</a>
       </div>
     </footer>

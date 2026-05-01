@@ -18,7 +18,8 @@
 
   <div class="shell">
     <nav class="top">
-      <div class="mark"><a href="../index.html"><span class="dot"></span>In<em>·</em>Aggregate</a><span class="tagline">A personal site for projects, writing, and things I'm still figuring out.</span></div>
+      <div class="mark"><a href="../index.html"><span class="dot"></span>In<em>·</em>Aggregate</a><span
+          class="tagline">A personal site for projects, writing, and things I'm still figuring out.</span></div>
       <ul>
         <li><a href="../index.html">index</a></li>
         <li><a href="../projects.html">projects</a></li>
@@ -30,23 +31,23 @@
     <main>
       <article class="article">
         <header class="reveal">
-          <div class="date">2026 · 03 · 12 · ~7 min read</div>
+          <div class="date">2026 · 03 · 12 · ~5 min read</div>
           <h1>Why noise matters: a stochastic view of cell fate.</h1>
         </header>
 
         <p class="lede reveal d1">
           Two genetically identical cells, sitting next to each other in the same
-          dish, given the same drug, can do completely different things. One dies.
+          dish, given the same concentration ofdrug, can do completely different things. One dies.
           One divides.
         </p>
 
         <h2>The problem with averages</h2>
         <p>
-          When you train as a biologist, you learn to think about pathways as
-          arrows on a slide. <em>Receptor activates kinase. Kinase phosphorylates
-          transcription factor. Transcription factor enters nucleus.</em> The
+          When you train as a biologist, you start to think about pathways as
+          arrows on a slide. <em>A receptor activates a kinase. A kinase, in turn, phosphorylates
+            a transcription factor. That transcription factor enters the nucleus.</em> The
           natural mathematical object behind this picture is an <strong>ordinary
-          differential equation</strong> — concentrations evolve smoothly, the
+            differential equation</strong> where concentrations evolve smoothly, the
           system has a steady state, and given the same inputs, you always get
           the same outputs.
         </p>
@@ -56,9 +57,9 @@
         </p>
 
         <blockquote>
-          A cell isn't a beaker. It's a tiny chemical reactor running with a
-          handful of copies of each molecule, where the next reaction is
-          essentially a coin flip.
+          Most molecules inside a cell exist in tens or hundreds of copies — small enough numbers that the next reaction
+          is
+          genuinely a probabilistic event, not a smooth average.
         </blockquote>
 
         <h2>What stochastic models actually do</h2>
@@ -66,12 +67,12 @@
           Stochastic chemical kinetics replaces the smooth flow of concentrations
           with a sequence of discrete reaction events. The
           <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie
-          algorithm</a> is the workhorse: at each step, given the current state,
+            algorithm</a> can be used to represent the signaling. At each step, given the current state,
           you ask "what's the probability that any reaction fires in the next
-          tiny window of time?" — and then you sample.
+          tiny window of time?".
         </p>
 
-<pre><code># the loop, conceptually
+        <pre><code># the loop, conceptually
 for run in range(N):
     state = initial_state.copy()
     while t &lt; T_max:
@@ -83,23 +84,22 @@ for run in range(N):
         <h2>Where this changes the answer</h2>
         <p>
           In the lung-cancer work I did at Vanderbilt, the deterministic version
-          of the model said something boring: at high enough drug concentration,
-          all cells stop dividing. The stochastic version said something true:
-          at the same drug concentration, a small but real fraction of cells
-          slip through the cell-cycle checkpoint anyway, and once they do, they
-          divide as fast as anything in the dish.
+          of the model tells you that at high enough drug concentration,
+          all cells stop dividing. The stochastic version gives you the insight that
+          a small but real fraction of cells slip through the cell-cycle checkpoint
+          anyway, and once they do, they can divide before apoptosis occurs.
         </p>
 
         <p>
-          If you'd like to play with this hands-on, I built
+          If you'd like to play with a stochastic process, I built
           <a class="inline" href="../demos/two-state-switch.html">a small interactive demo</a>
           that runs a two-state stochastic switch in your browser.
         </p>
 
         <p class="footnote">
           Further reading: Gillespie (1977), <em>Exact stochastic simulation of
-          coupled chemical reactions</em>. Wilkinson, <em>Stochastic Modelling for
-          Systems Biology</em>.
+            coupled chemical reactions</em>. Wilkinson, <em>Stochastic Modelling for
+            Systems Biology</em>.
         </p>
       </article>
     </main>
