@@ -1,108 +1,160 @@
-# oleskie.lab — personal site
+# In Aggregate
 
-A handmade portfolio + writing site. Plain HTML/CSS/JS, no build step, no
-dependencies. Drop it on GitHub Pages and it works.
+The source for [In Aggregate](https://aoleskie.github.io), my personal site —
+a small home on the internet for a few projects, occasional writing, and a
+slowly growing reading list. It's plain HTML, CSS, and JavaScript with no build step,
+framework, or `package.json`. The goal is something that loads quickly, is
+easy to edit by hand, and will still work in fifteen years.
 
-## what's in the box
+## What's here
 
 ```
-├── index.html              landing page (hero, projects, writing, papers)
-├── projects.html           full project deep-dives
-├── publications.html       papers, talks, honors
+├── index.html                  landing page
+├── projects.html               project writeups, filterable by category
+├── publications.html           papers, talks, and honors
 ├── blog/
-│   ├── index.html          blog listing
-│   └── stochastic-cell-fate.html   sample post
+│   ├── index.html              writing index
+│   └── stochastic-cell-fate.html
 ├── demos/
-│   └── two-state-switch.html       interactive Gillespie-ish demo
+│   ├── two-state-switch.html   interactive Gillespie-ish stochastic switch
+│   └── hearts.html             Hearts (placeholder for now)
+├── reading/
+│   ├── index.html              the books-by-country project
+│   ├── reading.css             page-specific styles for the map and list
+│   ├── reading.js              D3 map + searchable list
+│   └── data/
+│       ├── books.json          the running list, processed from a spreadsheet
+│       └── world-50m.json      Natural Earth world map TopoJSON
 ├── assets/
-│   ├── style.css           the entire design system
-│   └── main.js             stochastic particle background
-├── .nojekyll               tells GitHub Pages: don't process with Jekyll
-└── README.md               this file
+│   ├── style.css               the design system
+│   ├── main.js                 stochastic particle background
+│   ├── projects.js             category filter for the projects page
+│   ├── d3.min.js               D3 v7, bundled locally
+│   └── topojson-client.min.js  topojson-client v3, bundled locally
+├── .nojekyll                   tells GitHub Pages: don't process with Jekyll
+└── README.md                   this file
 ```
 
-## deploy to GitHub Pages
+## Deploying
 
-The simplest path — a **user site** at `https://YOUR-USERNAME.github.io`:
+The site is set up as a GitHub Pages user site, served from the root of
+`aoleskie.github.io`. To push an update:
 
-1. On GitHub, create a new repo named exactly `YOUR-USERNAME.github.io` (replace
-   with your actual GitHub username). Make it public.
-2. Push these files to the `main` branch:
-   ```bash
-   cd path/to/this/folder
-   git init
-   git add .
-   git commit -m "first commit"
-   git branch -M main
-   git remote add origin git@github.com:YOUR-USERNAME/YOUR-USERNAME.github.io.git
-   git push -u origin main
-   ```
-3. In the repo's **Settings → Pages**, set Source to `main` branch, root folder.
-   Save.
-4. Wait ~1 minute. Visit `https://YOUR-USERNAME.github.io`.
+```bash
+git add .
+git commit -m "describe the change"
+git push
+```
 
-For a **project site** (`https://YOUR-USERNAME.github.io/some-name/`) the only
-difference is the repo can have any name, but you'll need to update the links
-in the HTML to be relative (they already are — should just work).
+GitHub Pages will rebuild within a minute or two. There's no build step on
+their end either — every file you push is served directly.
 
-## customizing
+If you're forking this for your own site, the steps are:
 
-**Replace the placeholder links.** Search the HTML files for `https://github.com/`,
-`https://scholar.google.com/`, `https://www.linkedin.com/` — those are
-placeholders. Swap in your actual URLs.
+1. Create a public repo on GitHub named exactly `YOUR-USERNAME.github.io`.
+2. Clone this repo locally, replace the personal content, and push to your new
+   remote.
+3. In the new repo's **Settings → Pages**, set the source to the `main`
+   branch, root folder.
+4. The site will be live at `https://YOUR-USERNAME.github.io`.
 
-**Tweak the palette.** Open `assets/style.css`. The first block of `:root`
-variables is the entire color and type system. Change `--magenta` and `--teal`
-to taste. Want a dark theme? Swap `--bg`, `--paper`, `--ink`, `--ink-soft`.
+## How it was built
 
-**Add a project.** In `projects.html`, copy a `<section>` block, change the
-`id`, headline, and prose. Add a matching card on `index.html`.
+The site was built as a testcase with Claude over a series of
+conversations — design direction, copy edits, the interactive map, the
+project filter, all of it iterated on in chat. The goal was to end up with
+something that felt handmade and personal, not template-y. The trade-off is
+that everything is a little bespoke and there's no framework keeping things
+consistent for me. So far, that's been worth it.
 
-**Add a publication.** In `publications.html`, copy any `<li>` inside the
-`<ol class="pub-list">` and edit fields. Bold = your name.
+### Design
+
+- **Type.** [Fraunces](https://fonts.google.com/specimen/Fraunces) for
+  display headlines, especially the italic cuts.
+  [Newsreader](https://fonts.google.com/specimen/Newsreader) for body
+  copy. [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
+  for metadata, eyebrows, code, and anything that should feel terse next
+  to the prose.
+- **Palette.** Cream paper, near-black ink, hot magenta and teal accents
+  (representing dual-channel fluorescence microscopy in my
+  research, red / green was feeling a little too Christmas), and highlighter yellow as a tertiary used for inline
+  emphasis and the "featured" tape on project cards.
+- **Background.** A small stochastic particle field — about forty
+  particles doing a damped Brownian random walk, with faint lines between
+  nearby pairs. A visual reference to the kind of work the rest of the
+  site is about. Respects `prefers-reduced-motion`.
+- **Texture.** A subtle SVG noise grain layered above the background
+  gives the page a paper-stock feel without being distracting.
+- **Layout.** Asymmetric hero with the last name set in italic and
+  indented; dashed horizontal rules between sections; a small piece of
+  "tape" on the featured project card.
+
+### Interactivity
+
+Three interactive pieces, all written in plain JavaScript:
+
+- **The reading map** (`reading/reading.js`). Uses
+  [D3](https://d3js.org) v7 and
+  [topojson-client](https://github.com/topojson/topojson-client) v3,
+  both bundled locally so the page works without a CDN. The world
+  geometry is the Natural Earth `countries-50m` from
+  [world-atlas](https://github.com/topojson/world-atlas), keyed by ISO
+  numeric (M.49) codes; the books data is keyed by ISO alpha-3 with a
+  numeric ID added during processing for the join. Color encoding is a
+  five-stop linear scale across the rating range.
+- **The two-state switch demo** (`demos/two-state-switch.html`). A
+  tau-leaping stochastic simulator running in the browser, about sixty
+  lines of plain JS at the bottom of the file. Built originally as a
+  teaching aid.
+- **The project filter** (`assets/projects.js`). A small script that
+  toggles visibility of cards and category headings based on
+  `data-category` attributes. Counts on the filter pills are auto-derived
+  from the cards.
+
+### What's deliberately not here
+
+- No build step, no bundler, no `package.json`.
+- No analytics, no tracking, no third-party widgets.
+- No CMS. Everything is HTML files I edit directly.
+
+## Editing
+
+**Replace placeholder links.** A few links in the source point to my actual
+profiles (`github.com/aoleskie`, my Google Scholar page, my LinkedIn). If
+you're forking this, search-and-replace those.
+
+**Tweak the palette.** The `:root` block at the top of `assets/style.css`
+is the entire color and type system. Changing `--magenta` and `--teal` will
+ripple through the whole site, including the particle background and the
+reading map.
+
+**Add a project.** In `projects.html`, the cards live in
+`<div class="grid-projects">` blocks under each category heading. Copy any
+existing card, change the `data-category`, status badge, tag, headline, and
+description. Then add a matching `<section>` further down the page with the
+full writeup.
+
+**Add a publication.** Copy any `<li>` inside `<ol class="pub-list">` in
+`publications.html` and edit the year, title, authors, and venue. Bold the
+name where appropriate.
 
 **Add a blog post.**
-1. Copy `blog/stochastic-cell-fate.html` → `blog/your-new-post.html`.
-2. Change the `<title>`, `<header>` date, `<h1>`, and body.
-3. In `blog/index.html`, add an `<a class="post-link">` entry.
-4. Optionally add the same entry to the "recent writing" section of
+1. Copy `blog/stochastic-cell-fate.html` to a new file in `blog/`.
+2. Update the `<title>`, header date, `<h1>`, and body.
+3. Add a `<a class="post-link">` entry to `blog/index.html`.
+4. Optionally add the same entry to the "recent writing" section on
    `index.html`.
 
-**Add an interactive demo.** Drop a new `.html` file in `demos/`. Link it from
-`projects.html` or `index.html`. The demo at `demos/two-state-switch.html` is
-a working template — view-source it.
+**Update the reading list.** The list is processed from a spreadsheet into
+`reading/data/books.json`. To add a finished book, edit that JSON directly,
+or rerun the conversion script if you've updated the source spreadsheet.
+Each record has `iso`, `country`, `book`, `author`, `rating`, `status`, and
+`alt`, plus an `id` field that holds the numeric M.49 code used to join the
+data to the map.
 
-## design notes
+## License
 
-- **Type:** Fraunces (display, italic for emphasis), Newsreader (body),
-  JetBrains Mono (code, eyebrows, metadata). All from Google Fonts.
-- **Palette:** warm cream paper, near-black ink, hot magenta and teal accents
-  (a small homage to dual-channel fluorescence microscopy), highlighter
-  yellow as a tertiary.
-- **Background:** a stochastic particle field — ~38 particles doing a damped
-  Brownian random walk, with faint connecting lines between nearby ones. A
-  quiet visual reference to the actual research. Respects
-  `prefers-reduced-motion`.
-- **Texture:** SVG noise grain layered above the background to give the
-  paper-stock feel.
-- **Layout:** asymmetric hero (last name italic and indented), grid for
-  projects, dashed rules between sections, "tape" decoration on the featured
-  card.
-
-## moving to Jekyll later (optional)
-
-If you decide you want markdown blog posts:
-
-1. Delete `.nojekyll`.
-2. Add a `_config.yml` at the root with `title:`, `description:`, `theme:`
-   if you want a theme baseline.
-3. Move blog HTML files into a `_posts/` directory and rename them
-   `YYYY-MM-DD-slug.md`.
-4. Use Jekyll frontmatter and markdown bodies.
-
-Until then, plain HTML is honestly fine and easier to debug.
-
-## license
-
-Code is yours to do whatever with. The fonts come from Google Fonts under
-their respective open licenses.
+Code is MIT-licensed; do whatever you'd like with it. Personal content —
+project writeups, blog posts, the books list — is mine and shouldn't be
+copied wholesale. The fonts are loaded from Google Fonts under their
+respective open licenses.
