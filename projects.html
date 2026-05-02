@@ -36,10 +36,10 @@
           <span class="last">made</span>
         </h1>
         <p class="lede reveal d2">
-          Longer writeups of the work I've done, both at the bench and away
-          from it. The categories below sort the projects by what kind of
-          thing they are: peer-reviewed research, data analyses I've taken on
-          for my own curiosity, small tools I've built, and a slow-burning
+          This is a list of longer writeups of work I've done, both at the bench and away
+          from it. The categories below sort the projects by what
+          they are: peer-reviewed research, data analyses I've taken on
+          for my own curiosity, small tools I've built, and a fun
           reading project. Filter to whatever you're interested in, or just
           scroll.
         </p>
@@ -84,7 +84,7 @@
             <span class="status-badge" data-status="done">done</span>
             <span class="tag">structural biology · em</span>
             <h3>Arrestin recruitment, by EM</h3>
-            <p>Earlier work in the Skiniotis lab: visualizing arrestin recruitment
+            <p>Earlier work in the Skiniotis lab visualizing arrestin recruitment
               to a GPCR. Published in <em>Nature</em>, 2014.</p>
             <span class="arrow">read writeup</span>
           </a>
@@ -148,7 +148,7 @@
             <span class="tag">interactive · javascript</span>
             <h3>Polar filament patterns</h3>
             <p>An in-browser Vicsek-style simulator after Schaller et al.,
-              <em>Nature</em> 2010 — and an early thread that runs through the
+              <em>Nature</em> 2010 and an early thread that runs through the
               rest of my work.
             </p>
             <span class="arrow">play with it</span>
@@ -176,8 +176,8 @@
             <span class="status-badge" data-status="ongoing">ongoing</span>
             <span class="tag">books · 69 of 196</span>
             <h3>A book from every country</h3>
-            <p>Reading at least one book from every country in the world — running
-              list with ratings and an interactive world map.</p>
+            <p>I'm reading at least one book from every country in the world and
+              keeping a running list of ratings and an interactive world map.</p>
             <span class="arrow">see the list</span>
           </a>
 
@@ -203,14 +203,14 @@
           of my postdoc on was <em>why</em>.
         </p>
         <p>
-          The approach was a stochastic, mechanistic model of the cell-fate
+          The approach we employed was a stochastic, mechanistic model of the cell-fate
           decision built in <code>PySB</code>, parameterized with in-vitro
           measurements of mitotic time, quiescence, and death, and run across
           thousands of <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie</a>
-          trajectories per condition. A deterministic model of the same
-          network missed something important: averaged over a population, the
-          cells looked uniformly suppressed by the drug, but the stochastic
-          version showed that a small fraction were slipping into a
+          trajectories per condition. Using a deterministic model of the same
+          network we miss something important, averaged over a population, the
+          cells looked uniformly suppressed by the drug. But the stochastic
+          version shows that a small fraction are slipping into a
           fast-dividing state and proliferating from there. That fraction is
           small, but it's also a meaningful piece of why the drug isn't
           curative on its own.
@@ -248,9 +248,7 @@ trajectories = results.dataframe</code></pre>
           testing which modules were significantly different between the
           wild-type and knockout conditions. The analysis served as
           orthogonal support for a TFCP2L1 finding the rest of the team had
-          identified through differential expression — placing TFCP2L1 at the
-          center of a skin-development module that was upregulated in
-          <em>Cxcr2</em>-null tumors. Published as part of
+          identified through differential expression. Published as part of
           <a class="inline" href="publications.html">Yang et al., <em>Mol Cancer</em>, 2023</a>.
         </p>
 
@@ -275,20 +273,17 @@ net <- blockwiseModules(
         <p>
           Before the modeling work, I spent two years in the Skiniotis lab at
           Michigan, learning electron microscopy and collecting micrographs
-          of protein assemblies. The paper I'm proudest of from that period
+          of protein assemblies. Some of the work the work from that period
           is a structure of a
           <a class="inline" href="https://www.nature.com/articles/nature13430">GPCR–arrestin complex</a>
-          that helped settle a long-running question about how arrestin gets
-          recruited to a G-protein coupled receptor — it came out in
+          that helped in our understanding of how arrestin gets
+          recruited to a G-protein coupled receptor. It came out in
           <em>Nature</em> in 2014.
         </p>
         <p>
-          There were quieter contributions, too: a collaboration with the
+          Other work included a collaboration with the
           Ginsburg lab visualizing factor VIII bound to von Willebrand factor,
-          and some early work on the architecture of VPS13. Most of what I
-          learned in that lab — how to look carefully at messy data and trust
-          your eyes — turned out to be useful long after I'd stopped doing
-          electron microscopy.
+          and the Fuller lab to visualize the architecture of VPS13.
         </p>
       </section>
 
@@ -299,18 +294,15 @@ net <- blockwiseModules(
         <div class="eyebrow">data · 01</div>
         <h2><em>Biotech funding</em> patterns.</h2>
         <p>
-          A side project that started because I kept wanting to look at the
-          same data over and over and got tired of doing it by hand. The
+          A side project that started because I was curious how funding patterns
+          affect the overall biotech job market. The
           pipeline pulls NIH grant allocations from RePORTER, IPO and S-1
-          filings from SEC EDGAR, and venture-funding data where I can get it
-          cleanly, and stitches everything into something where year-over-year
-          shifts in biotech subsectors are actually visible.
+          filings from SEC EDGAR, venture-funding data where I can get it
+          cleanly, and state-level WARN data, and stitches everything into something where year-over-year
+          shifts in biotech subsectors can be visible.
         </p>
         <p>
-          A writeup is forthcoming. The questions I find most interesting are
-          the ones about gaps: which therapeutic areas are persistently
-          overfunded relative to disease burden, and where the gap between
-          academic interest and venture interest is widest.
+          A writeup is forthcoming.
         </p>
       </section>
 
@@ -324,15 +316,10 @@ net <- blockwiseModules(
           A companion to the funding project, looking at who sits on the
           boards of public biotech companies and how often the same names
           appear across multiple boards. The data comes from SEC proxy
-          filings (DEF 14A), parsed into a graph where companies are nodes
-          connected by shared directors.
+          filings (DEF 14A).
         </p>
         <p>
-          Writeup forthcoming. The questions worth asking are about
-          concentration: how small the effective director pool actually is,
-          what fraction of new biotech boards include someone already serving
-          on three or more, and whether interlock patterns predict anything
-          useful about company outcomes down the line.
+          A writeup is forthcoming.
         </p>
       </section>
 
@@ -343,20 +330,11 @@ net <- blockwiseModules(
         <div class="eyebrow">tools · 01</div>
         <h2><em>A career scraper.</em></h2>
         <p>
-          Built for myself during the job search, mostly out of frustration.
-          A small Python pipeline that scrapes the careers pages of a curated
-          set of companies — mostly biotech, some data-science — normalizes
-          the postings into a common schema, deduplicates them, and flags
-          what's new since the last run. The output is a single CSV I can
-          sort and filter without having to open thirty tabs.
-        </p>
-        <p>
-          The hard part wasn't the scraping itself. It was that every
-          company's careers page is built differently: about a third use
-          Greenhouse, a third use Lever, and the rest each have their own
-          bespoke setup that needs its own parser. The architecture ended up
-          being a base scraper class with per-platform subclasses and a small
-          handful of one-off classes for the holdouts.
+          Built for myself during the job search. A small Python pipeline that
+          scrapes the careers pages of a curated set of companies (mostly biotech,
+          some data-science), normalizes the postings into a common schema,
+          deduplicates them, and flags what's new since the last run. Output is
+          a single CSV I can sort and filter.
         </p>
       </section>
 
@@ -368,16 +346,12 @@ net <- blockwiseModules(
         <h2><em>Hearts</em> in the browser.</h2>
         <p>
           A browser implementation of the card game Hearts, with three AI
-          opponents I'm slowly making smarter. Standard four-player rules,
-          the queen of spades is thirteen points, hearts are one each, shoot
-          the moon flips the score onto everyone else. Built mostly so I
-          could teach myself game-state management in plain JavaScript
-          without reaching for a framework.
+          opponents I'm slowly making smarter.
         </p>
         <p>
           The longer-term plan is to use the same engine for Star Realms, a
           deckbuilder with a richer action space and a more interesting
-          opponent to design. Hearts is the warmup.
+          opponent to design.
         </p>
         <p>
           <a class="btn primary" href="demos/hearts.html">play hearts →</a>
@@ -414,7 +388,7 @@ net <- blockwiseModules(
             et al., <em>Nature</em> 2010</a>.
           Thousands of self-propelled filaments interacting through a simple
           local alignment rule showing the emergence of moving swarms, traveling
-          density waves, or quiet disorder, depending on a handful of
+          density waves, or disorder, depending on a handful of
           parameters.
         </p>
         <p>
@@ -441,7 +415,7 @@ net <- blockwiseModules(
         <div class="eyebrow">reading · 01</div>
         <h2><em>A book</em> from every country.</h2>
         <p>
-          A long, slow project: reading at least one book by an author from every
+          This is a project where I'm reading at least one book by an author from every
           country in the world. Part of the fun has been the research building the
           list in the first place. Once I'm done, maybe I'll start again.
         </p>
