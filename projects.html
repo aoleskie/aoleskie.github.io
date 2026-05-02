@@ -48,10 +48,10 @@
       <!-- ─── filter + grid ─── -->
       <section style="padding-top: 0;">
         <div class="filters" role="tablist" aria-label="Filter projects by category">
-          <button class="filter-pill active" data-filter="all">all <span class="count">10</span></button>
+          <button class="filter-pill active" data-filter="all">all <span class="count">11</span></button>
           <button class="filter-pill" data-filter="research">research <span class="count">3</span></button>
           <button class="filter-pill" data-filter="data">data <span class="count">2</span></button>
-          <button class="filter-pill" data-filter="tools">tools <span class="count">4</span></button>
+          <button class="filter-pill" data-filter="tools">tools <span class="count">5</span></button>
           <button class="filter-pill" data-filter="reading">reading <span class="count">1</span></button>
         </div>
 
@@ -131,6 +131,15 @@
             <h3>Career scraper</h3>
             <p>Scrapes job postings from a curated list of biotech &amp; data-science
               company career pages, deduplicates them, and surfaces what's new.</p>
+            <span class="arrow">read writeup</span>
+          </a>
+
+          <a class="card" data-category="tools" href="#signalscreen">
+            <span class="status-badge" data-status="done">done</span>
+            <span class="tag">drug discovery · python</span>
+            <h3>SignalScreen</h3>
+            <p>A pipeline that mines public databases for candidate compounds against
+              a given biological target, built around RARγ as a first test case.</p>
             <span class="arrow">read writeup</span>
           </a>
 
@@ -340,9 +349,65 @@ net <- blockwiseModules(
 
       <hr class="dashed" />
 
+      <!-- ─── signalscreen ─── -->
+      <section id="signalscreen">
+        <div class="eyebrow">tools · 02</div>
+        <h2><em>SignalScreen.</em></h2>
+        <p>
+          A Python pipeline that takes a biological target and creates
+          a curated, scored list of candidate compounds. The
+          first target I pointed it at was the retinoic acid receptor,
+          specifically the γ subtype, which is the form most expressed in
+          skin and a reasonable handle for capturing retinol-like effects
+          with less of the irritation.
+        </p>
+        <p>
+          The pipeline itself is five stages, each writing a tidy intermediate
+          to disk so the next stage can resume cleanly when an external API
+          fails. The first two stages gather target metadata from Guide to
+          Pharmacology and bioactivity records from ChEMBL. The third scores
+          each ligand on RARγ potency and on selectivity against RARα and
+          RARβ, using the pChEMBL values from the bioactivity table. The
+          fourth takes the top hits and enriches them with PubChem
+          identifiers, mechanisms of action, pathway associations from
+          Reactome, clinical trials from ClinicalTrials.gov, and literature
+          pulled from PubMed, BindingDB, and ChEMBL's own document records.
+          The fifth writes a single summary TSV.
+        </p>
+        <p>
+          From around 975 candidates that came back from the ChEMBL pull,
+          three ended up at the top of the list: <code>CHEMBL3936922</code>
+          (structurally close to trifarotene, with strong RARγ selectivity
+          but very little literature or clinical history),
+          <code>CHEMBL330998</code> (closer in structure to retinoic acid
+          itself, again with thin downstream evidence), and palovarotene
+          (already approved for fibrodysplasia ossificans progressiva, but
+          with off-target effects that limit its appeal as a
+          cosmetic-skincare lead).
+        </p>
+        <p>
+          The current pipeline is a proof of concept rather than a deployable
+          tool. The places I'd want to take it next are expanding the
+          candidate pool through structure-similarity search, weighting the
+          scoring function by the volume and quality of the supporting
+          literature, and using the off-target data the pipeline already
+          pulls to penalize compounds with bad selectivity profiles. The
+          structure of the pipeline (pull the target, pull the ligands,
+          score, enrich the top hits) is target-agnostic, and pointing it
+          at a different receptor would let the same five stages run
+          unchanged.
+        </p>
+        <p>
+          <a class="btn primary" href="https://github.com/aoleskie/SignalScreen" target="_blank" rel="noopener">view on
+            github →</a>
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
       <!-- ─── hearts ─── -->
       <section id="hearts">
-        <div class="eyebrow">tools · 02</div>
+        <div class="eyebrow">tools · 03</div>
         <h2><em>Hearts</em> in the browser.</h2>
         <p>
           A browser implementation of the card game Hearts, with three AI
@@ -362,7 +427,7 @@ net <- blockwiseModules(
 
       <!-- ─── two-state demo ─── -->
       <section id="two-state">
-        <div class="eyebrow">tools · 03</div>
+        <div class="eyebrow">tools · 04</div>
         <h2><em>An interactive</em> two-state switch.</h2>
         <p>
           A simple visualization of a stochastic process. A tiny in-browser stochastic simulator with two states,
@@ -379,7 +444,7 @@ net <- blockwiseModules(
 
       <!-- ─── motility assay ─── -->
       <section id="motility">
-        <div class="eyebrow">tools · 04</div>
+        <div class="eyebrow">tools · 05</div>
         <h2><em>Polar filament</em> patterns.</h2>
         <p>
           An in-browser, Vicsek-style simulator of a high-density actin
