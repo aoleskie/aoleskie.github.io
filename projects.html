@@ -41,16 +41,17 @@
           thing they are: peer-reviewed research, data analyses I've taken on
           for my own curiosity, small tools I've built, and a slow-burning
           reading project. Filter to whatever you're interested in, or just
-          scroll.</p>
+          scroll.
+        </p>
       </section>
 
       <!-- ─── filter + grid ─── -->
       <section style="padding-top: 0;">
         <div class="filters" role="tablist" aria-label="Filter projects by category">
-          <button class="filter-pill active" data-filter="all">all <span class="count">8</span></button>
+          <button class="filter-pill active" data-filter="all">all <span class="count">10</span></button>
           <button class="filter-pill" data-filter="research">research <span class="count">3</span></button>
           <button class="filter-pill" data-filter="data">data <span class="count">2</span></button>
-          <button class="filter-pill" data-filter="tools">tools <span class="count">2</span></button>
+          <button class="filter-pill" data-filter="tools">tools <span class="count">4</span></button>
           <button class="filter-pill" data-filter="reading">reading <span class="count">1</span></button>
         </div>
 
@@ -140,6 +141,17 @@
             <p>A browser implementation of Hearts with a basic AI opponent.
               Long-term: Star Realms.</p>
             <span class="arrow">play it</span>
+          </a>
+
+          <a class="card" data-category="tools" href="demos/motility-assay.html">
+            <span class="status-badge" data-status="done">done</span>
+            <span class="tag">interactive · javascript</span>
+            <h3>Polar filament patterns</h3>
+            <p>An in-browser Vicsek-style simulator after Schaller et al.,
+              <em>Nature</em> 2010 — and an early thread that runs through the
+              rest of my work.
+            </p>
+            <span class="arrow">play with it</span>
           </a>
 
           <a class="card" data-category="tools" href="demos/two-state-switch.html">
@@ -271,9 +283,12 @@ net <- blockwiseModules(
           <em>Nature</em> in 2014.
         </p>
         <p>
-          Other work included a collaboration with the
+          There were quieter contributions, too: a collaboration with the
           Ginsburg lab visualizing factor VIII bound to von Willebrand factor,
-          and some work on the architecture of VPS13.
+          and some early work on the architecture of VPS13. Most of what I
+          learned in that lab — how to look carefully at messy data and trust
+          your eyes — turned out to be useful long after I'd stopped doing
+          electron microscopy.
         </p>
       </section>
 
@@ -284,9 +299,8 @@ net <- blockwiseModules(
         <div class="eyebrow">data · 01</div>
         <h2><em>Biotech funding</em> patterns.</h2>
         <p>
-          A side project tracking how money moves through biotech: NIH grant
-          allocations by area, venture-capital flow into therapeutic categories,
-          and IPO activity by year and subsector. The
+          A side project that started because I kept wanting to look at the
+          same data over and over and got tired of doing it by hand. The
           pipeline pulls NIH grant allocations from RePORTER, IPO and S-1
           filings from SEC EDGAR, and venture-funding data where I can get it
           cleanly, and stitches everything into something where year-over-year
@@ -308,15 +322,17 @@ net <- blockwiseModules(
         <h2><em>Board composition</em> in public biotech.</h2>
         <p>
           A companion to the funding project, looking at who sits on the
-          boards of public biotech companies, and how often the
-          same names show up across multiple boards. Pulling director rosters
-          from SEC proxy filings (DEF 14A).
+          boards of public biotech companies and how often the same names
+          appear across multiple boards. The data comes from SEC proxy
+          filings (DEF 14A), parsed into a graph where companies are nodes
+          connected by shared directors.
         </p>
         <p>
-          Writeup forthcoming. Some questions are: how concentrated is
-          the director pool, what fraction of new biotech boards include someone
-          already on three or more, and whether interlock patterns predict
-          anything about company outcomes.
+          Writeup forthcoming. The questions worth asking are about
+          concentration: how small the effective director pool actually is,
+          what fraction of new biotech boards include someone already serving
+          on three or more, and whether interlock patterns predict anything
+          useful about company outcomes down the line.
         </p>
       </section>
 
@@ -327,11 +343,12 @@ net <- blockwiseModules(
         <div class="eyebrow">tools · 01</div>
         <h2><em>A career scraper.</em></h2>
         <p>
-          Built for myself during the job search. A small Python pipeline that
-          scrapes the careers pages of a curated set of companies (mostly biotech,
-          some data-science), normalizes the postings into a common schema,
-          deduplicates them, and flags what's new since the last run. Output is
-          a single CSV I can sort and filter.
+          Built for myself during the job search, mostly out of frustration.
+          A small Python pipeline that scrapes the careers pages of a curated
+          set of companies — mostly biotech, some data-science — normalizes
+          the postings into a common schema, deduplicates them, and flags
+          what's new since the last run. The output is a single CSV I can
+          sort and filter without having to open thirty tabs.
         </p>
         <p>
           The hard part wasn't the scraping itself. It was that every
@@ -360,7 +377,7 @@ net <- blockwiseModules(
         <p>
           The longer-term plan is to use the same engine for Star Realms, a
           deckbuilder with a richer action space and a more interesting
-          opponent to design. I'm using Hearts to learn the ropes.
+          opponent to design. Hearts is the warmup.
         </p>
         <p>
           <a class="btn primary" href="demos/hearts.html">play hearts →</a>
@@ -381,6 +398,39 @@ net <- blockwiseModules(
         </p>
         <p>
           <a class="btn primary" href="demos/two-state-switch.html">open the demo →</a>
+        </p>
+      </section>
+
+      <hr class="dashed" />
+
+      <!-- ─── motility assay ─── -->
+      <section id="motility">
+        <div class="eyebrow">tools · 04</div>
+        <h2><em>Polar filament</em> patterns.</h2>
+        <p>
+          An in-browser, Vicsek-style simulator of a high-density actin
+          motility assay, after
+          <a class="inline" href="https://www.nature.com/articles/nature09312" target="_blank" rel="noopener">Schaller
+            et al., <em>Nature</em> 2010</a>.
+          Thousands of self-propelled filaments interacting through a simple
+          local alignment rule showing the emergence of moving swarms, traveling
+          density waves, or quiet disorder, depending on a handful of
+          parameters.
+        </p>
+        <p>
+          The Schaller paper was one of the first papers I read closely as a
+          young researcher, and although I didn't realize it at the time, it
+          shaped almost everything I've worked on since. I started a
+          graduate-school project on actin networks that was
+          asking related questions, examining local forces within an actin gradient,
+          and although that line of research got cut short, the
+          underlying interest never went away. I built the simulator partly to revisit the
+          original question with the tools I have now, and partly because it
+          still produces the most striking emergent behavior I've ever
+          watched come out of a few lines of code.
+        </p>
+        <p>
+          <a class="btn primary" href="demos/motility-assay.html">open the demo →</a>
         </p>
       </section>
 
@@ -407,8 +457,9 @@ net <- blockwiseModules(
 
     <footer>
       <div class="colophon">
-        <strong>In Aggregate</strong> · these writeups are my own; collaborators
-        are named in the linked publications. Last updated April 2026.
+        <strong>In Aggregate</strong> · these writeups are mine; collaborators
+        on the published work are credited in the linked papers. Last updated
+        April 2026.
       </div>
       <div class="links">
         <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>

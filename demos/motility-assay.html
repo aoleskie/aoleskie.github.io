@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polar filament patterns · In Aggregate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&family=Major+Mono+Display&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    /* ============================================================
+       Motility-assay demo styles — adapted from the original demo,
+       scoped under #motility-frame so they don't collide with the
+       cream-paper site palette.
+       ============================================================ */
+    #motility-frame {
+      --m-bg: #07090a;
+      --m-bg-deep: #040506;
+      --m-panel: #0e1314;
+      --m-panel-2: #131a1c;
+      --m-border: #1c2528;
+      --m-border-bright: #2a3539;
+      --m-text: #d8dcd9;
+      --m-text-dim: #8a9491;
+      --m-muted: #535d5b;
+      --m-accent: #ff8c2a;
+      --m-accent-soft: #ffb073;
+      --m-signal: #4ad6c5;
+
+      background: var(--m-bg);
+      background-image:
+        radial-gradient(ellipse at top left, rgba(255, 140, 42, 0.04), transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(74, 214, 197, 0.03), transparent 50%);
+      color: var(--m-text);
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    #motility-frame * {
+      box-sizing: border-box;
+    }
+
+    #motility-frame .m-header {
+      border-bottom: 1px solid var(--m-border);
+      padding: 16px 20px 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    #motility-frame .m-header h3 {
+      margin: 0;
+      font-family: 'Major Mono Display', monospace;
+      font-weight: 400;
+      font-size: 17px;
+      letter-spacing: 0.04em;
+      color: var(--m-text);
+    }
+
+    #motility-frame .m-header h3 .m-dot {
+      color: var(--m-accent);
+    }
+
+    #motility-frame .m-header .m-sub {
+      color: var(--m-text-dim);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    #motility-frame .m-header .m-ref {
+      margin-left: auto;
+      color: var(--m-muted);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    #motility-frame .m-header .m-ref a {
+      color: var(--m-text-dim);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--m-muted);
+    }
+
+    #motility-frame .m-header .m-ref a:hover {
+      color: var(--m-accent-soft);
+      border-bottom-color: var(--m-accent-soft);
+    }
+
+    #motility-frame .m-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 12px;
+      padding: 12px 16px 16px;
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      #motility-frame .m-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #motility-frame .m-stage {
+      position: relative;
+      background: var(--m-panel);
+      border: 1px solid var(--m-border);
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      width: 100%;
+      max-width: 540px;
+      min-height: 360px;
+      justify-self: start;
+    }
+
+    #motility-frame canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--m-bg-deep);
+      image-rendering: pixelated;
+    }
+
+    #motility-frame .m-corner {
+      position: absolute;
+      pointer-events: none;
+      color: var(--m-text-dim);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+    }
+
+    #motility-frame .m-corner.tl {
+      top: 0;
+      left: 0;
+    }
+
+    #motility-frame .m-corner.tr {
+      top: 0;
+      right: 0;
+      text-align: right;
+    }
+
+    #motility-frame .m-corner.bl {
+      bottom: 0;
+      left: 0;
+    }
+
+    #motility-frame .m-corner.br {
+      bottom: 0;
+      right: 0;
+      text-align: right;
+    }
+
+    #motility-frame .m-corner .m-v {
+      color: var(--m-signal);
+      font-weight: 500;
+    }
+
+    #motility-frame .m-corner .m-v.warn {
+      color: var(--m-accent);
+    }
+
+    #motility-frame .m-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px) 0 0 / 80px 80px,
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px) 0 0 / 80px 80px;
+      z-index: 1;
+    }
+
+    #motility-frame .m-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    #motility-frame .m-panel {
+      background: var(--m-panel);
+      border: 1px solid var(--m-border);
+      border-radius: 4px;
+      padding: 10px 12px;
+    }
+
+    #motility-frame .m-panel h4 {
+      margin: 0 0 8px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--m-text-dim);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+
+    #motility-frame .m-panel h4::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--m-accent);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    #motility-frame .m-row {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 8px;
+    }
+
+    #motility-frame .m-row:last-child {
+      margin-bottom: 0;
+    }
+
+    #motility-frame .m-row .m-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--m-text-dim);
+    }
+
+    #motility-frame .m-row .m-label .m-name {
+      letter-spacing: 0.05em;
+    }
+
+    #motility-frame .m-row .m-label .m-val {
+      color: var(--m-text);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #motility-frame .m-row .m-hint {
+      font-size: 10px;
+      color: var(--m-muted);
+      margin-top: 1px;
+    }
+
+    /* Sliders */
+    #motility-frame input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 16px;
+      background: transparent;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    #motility-frame input[type="range"]::-webkit-slider-runnable-track {
+      height: 2px;
+      background: var(--m-border-bright);
+      border-radius: 1px;
+    }
+
+    #motility-frame input[type="range"]::-moz-range-track {
+      height: 2px;
+      background: var(--m-border-bright);
+      border-radius: 1px;
+    }
+
+    #motility-frame input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: var(--m-accent);
+      margin-top: -5px;
+      box-shadow: 0 0 0 3px rgba(255, 140, 42, 0.15);
+      transition: box-shadow 0.15s;
+    }
+
+    #motility-frame input[type="range"]:hover::-webkit-slider-thumb {
+      box-shadow: 0 0 0 5px rgba(255, 140, 42, 0.25);
+    }
+
+    #motility-frame input[type="range"]::-moz-range-thumb {
+      height: 12px;
+      width: 12px;
+      border: none;
+      border-radius: 50%;
+      background: var(--m-accent);
+      box-shadow: 0 0 0 3px rgba(255, 140, 42, 0.15);
+    }
+
+    #motility-frame .m-preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+
+    #motility-frame .m-btn {
+      background: var(--m-panel-2);
+      border: 1px solid var(--m-border-bright);
+      color: var(--m-text);
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.12s;
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    #motility-frame .m-btn:hover {
+      border-color: var(--m-accent);
+      color: var(--m-accent-soft);
+      background: rgba(255, 140, 42, 0.05);
+    }
+
+    #motility-frame .m-btn:active {
+      transform: translateY(1px);
+    }
+
+    #motility-frame .m-btn .m-desc {
+      display: block;
+      color: var(--m-muted);
+      font-size: 9px;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      margin-top: 3px;
+    }
+
+    #motility-frame .m-btn:hover .m-desc {
+      color: var(--m-text-dim);
+    }
+
+    #motility-frame .m-btn.primary {
+      background: var(--m-accent);
+      border-color: var(--m-accent);
+      color: #1a0f05;
+    }
+
+    #motility-frame .m-btn.primary:hover {
+      background: var(--m-accent-soft);
+      color: #1a0f05;
+    }
+
+    #motility-frame .m-btn.flat {
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    #motility-frame .m-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    #motility-frame .m-toggles {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    #motility-frame .m-toggle-btn {
+      flex: 1;
+      background: var(--m-panel-2);
+      border: 1px solid var(--m-border-bright);
+      color: var(--m-text-dim);
+      padding: 6px 8px;
+      font-family: inherit;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.12s;
+      text-align: center;
+    }
+
+    #motility-frame .m-toggle-btn.active {
+      background: rgba(74, 214, 197, 0.1);
+      border-color: var(--m-signal);
+      color: var(--m-signal);
+    }
+
+    #motility-frame .m-toggle-btn:hover:not(.active) {
+      color: var(--m-text);
+      border-color: var(--m-text-dim);
+    }
+
+    #motility-frame .m-readout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    #motility-frame .m-readout .m-stat {
+      background: var(--m-bg-deep);
+      border: 1px solid var(--m-border);
+      padding: 6px 8px;
+      border-radius: 2px;
+    }
+
+    #motility-frame .m-readout .m-stat .m-k {
+      color: var(--m-muted);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    #motility-frame .m-readout .m-stat .m-v {
+      color: var(--m-text);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      margin-top: 1px;
+      font-weight: 500;
+    }
+
+    #motility-frame .m-readout .m-stat.signal .m-v {
+      color: var(--m-signal);
+    }
+
+    #motility-frame .m-readout .m-stat.accent .m-v {
+      color: var(--m-accent-soft);
+    }
+
+    #motility-frame .m-legend {
+      font-size: 10px;
+      color: var(--m-text-dim);
+      line-height: 1.6;
+    }
+
+    #motility-frame .m-legend p {
+      margin: 0 0 6px;
+    }
+
+    #motility-frame .m-legend p:last-child {
+      margin-bottom: 0;
+    }
+
+    #motility-frame .m-legend strong {
+      color: var(--m-text);
+      font-weight: 500;
+    }
+
+    #motility-frame .m-legend .m-swatch {
+      display: block;
+      width: 100%;
+      height: 8px;
+      border-radius: 1px;
+      margin: 4px 0 6px;
+      background: linear-gradient(to right,
+          hsl(0, 80%, 60%), hsl(60, 80%, 60%), hsl(120, 80%, 60%),
+          hsl(180, 80%, 60%), hsl(240, 80%, 60%), hsl(300, 80%, 60%), hsl(360, 80%, 60%));
+    }
+
+    #motility-frame .m-footnote {
+      color: var(--m-muted);
+      font-size: 10px;
+      text-align: center;
+      padding: 10px 16px 16px;
+      letter-spacing: 0.04em;
+      border-top: 1px solid var(--m-border);
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="shell">
+    <nav class="top">
+      <div class="mark"><a href="../index.html"><span class="dot"></span>In<em>·</em>Aggregate</a><span
+          class="tagline">A personal site for projects, writing, and things I'm still figuring out.</span></div>
+      <ul>
+        <li><a href="../index.html">index</a></li>
+        <li><a href="../projects.html" class="active">projects</a></li>
+        <li><a href="../blog/">writing</a></li>
+        <li><a href="../publications.html">papers</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article class="article" style="max-width: 900px;">
+        <header class="reveal">
+          <div class="date">interactive demo · vanilla js · vicsek-style</div>
+          <h1>Polar filament patterns.</h1>
+        </header>
+
+        <p class="lede reveal d1">
+          A simulated high-density actin motility assay where thousands of
+          self-propelled filaments, each gliding gently toward its neighbors
+          with a little angular noise, are enough to produce the patterns
+          observed in the lab — moving swarms, traveling density waves, and
+          a disorganized state.
+        </p>
+
+        <!-- ============================================================
+             The simulator
+             ============================================================ -->
+        <div id="motility-frame">
+          <div class="m-header">
+            <h3>POLAR FILAMENT PATTERNS<span class="m-dot">.</span></h3>
+            <span class="m-sub">High-density motility assay · agent simulator</span>
+            <span class="m-ref">after <a href="https://www.nature.com/articles/nature09312" target="_blank"
+                rel="noopener">Schaller et al., Nature 2010</a></span>
+          </div>
+
+          <div class="m-layout">
+            <div class="m-stage">
+              <canvas id="canvas"></canvas>
+              <div class="m-corner tl">
+                <div>polar order <span class="m-v" id="cornerOrder">0.00</span></div>
+              </div>
+              <div class="m-corner tr">
+                <div>n = <span class="m-v" id="cornerN">0</span></div>
+              </div>
+              <div class="m-corner bl">
+                <div><span id="cornerStatus" class="m-v">running</span></div>
+              </div>
+              <div class="m-corner br">
+                <div><span id="cornerFps" class="m-v">60</span> fps</div>
+              </div>
+            </div>
+
+            <aside class="m-controls">
+
+              <section class="m-panel">
+                <h4>presets</h4>
+                <div class="m-preset-grid">
+                  <button class="m-btn" data-preset="quiescent">Disordered<span class="m-desc">low ρ · random
+                      walks</span></button>
+                  <button class="m-btn" data-preset="swarms">Swarms<span class="m-desc">moving clusters</span></button>
+                  <button class="m-btn" data-preset="bands">Density waves<span class="m-desc">high ρ · traveling
+                      bands</span></button>
+                  <button class="m-btn" data-preset="nematic">No alignment<span class="m-desc">density alone is not
+                      enough</span></button>
+                </div>
+              </section>
+
+              <section class="m-panel">
+                <h4>parameters</h4>
+
+                <div class="m-row">
+                  <div class="m-label">
+                    <span class="m-name">density · n filaments</span>
+                    <span class="m-val" id="vN">2400</span>
+                  </div>
+                  <input type="range" id="sN" min="100" max="5000" step="50" value="2400">
+                </div>
+
+                <div class="m-row">
+                  <div class="m-label">
+                    <span class="m-name">alignment · α</span>
+                    <span class="m-val" id="vAlpha">0.70</span>
+                  </div>
+                  <input type="range" id="sAlpha" min="0" max="1" step="0.01" value="0.70">
+                  <div class="m-hint">how strongly a filament rotates toward its neighbors</div>
+                </div>
+
+                <div class="m-row">
+                  <div class="m-label">
+                    <span class="m-name">filament length · L</span>
+                    <span class="m-val" id="vL">12</span>
+                  </div>
+                  <input type="range" id="sL" min="4" max="28" step="1" value="12">
+                  <div class="m-hint">also sets the interaction radius</div>
+                </div>
+
+                <div class="m-row">
+                  <div class="m-label">
+                    <span class="m-name">angular noise · η</span>
+                    <span class="m-val" id="vNoise">0.22</span>
+                  </div>
+                  <input type="range" id="sNoise" min="0" max="1" step="0.01" value="0.22">
+                  <div class="m-hint">thermal-like fluctuation per step (rad)</div>
+                </div>
+
+                <div class="m-row">
+                  <div class="m-label">
+                    <span class="m-name">speed · v₀</span>
+                    <span class="m-val" id="vV0">1.0</span>
+                  </div>
+                  <input type="range" id="sV0" min="0.2" max="2.5" step="0.05" value="1.0">
+                  <div class="m-hint">set by motor activity in the real assay</div>
+                </div>
+              </section>
+
+              <section class="m-panel">
+                <h4>display</h4>
+                <div class="m-toggles">
+                  <button class="m-toggle-btn active" data-mode="filaments">Filaments</button>
+                  <button class="m-toggle-btn" data-mode="density">Density</button>
+                  <button class="m-toggle-btn" data-mode="orientation">Orientation</button>
+                </div>
+              </section>
+
+              <section class="m-panel">
+                <h4>readout</h4>
+                <div class="m-readout">
+                  <div class="m-stat signal">
+                    <div class="m-k">polar order |⟨v⟩|/v₀</div>
+                    <div class="m-v" id="rOrder">0.00</div>
+                  </div>
+                  <div class="m-stat accent">
+                    <div class="m-k">phase</div>
+                    <div class="m-v" id="rPhase" style="font-size:12px">—</div>
+                  </div>
+                  <div class="m-stat">
+                    <div class="m-k">density · n / L²</div>
+                    <div class="m-v" id="rDensity">0.00</div>
+                  </div>
+                  <div class="m-stat">
+                    <div class="m-k">step</div>
+                    <div class="m-v" id="rStep">0</div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="m-panel">
+                <h4>actions</h4>
+                <div class="m-actions">
+                  <button class="m-btn flat" id="btnPause">Pause</button>
+                  <button class="m-btn flat primary" id="btnReset">Reset</button>
+                </div>
+              </section>
+
+              <section class="m-panel">
+                <h4>legend</h4>
+                <div class="m-legend">
+                  <p><strong>Color</strong> encodes orientation. Coherently moving regions appear monochromatic;
+                    disordered regions look like static.</p>
+                  <span class="m-swatch"></span>
+                  <p><strong>What to try.</strong> Start with <em>Density waves</em>, watch bands form (~30s). Then drop
+                    α toward zero — order collapses. Crank noise up — same. Drop N — bands break into swarms.</p>
+                </div>
+              </section>
+
+            </aside>
+          </div>
+
+          <div class="m-footnote">
+            minimal vicsek-style polar self-propelled-particle model · periodic boundaries · interaction radius set by
+            filament length
+          </div>
+        </div>
+
+        <!-- ============================================================
+             Writeup
+             ============================================================ -->
+        <h2>The science.</h2>
+        <p>
+          The original reference is <a class="inline" href="https://www.nature.com/articles/nature09312" target="_blank"
+            rel="noopener">Schaller et al., <em>Nature</em> 2010</a> covering a high-density actin motility assay where
+          actin filaments were
+          propelled across a surface coated with myosin motors. At low
+          density, the filaments wander around and occasionally align with their neighbors.
+          As density is increased, they spontaneously organize into swarms, vortices, and traveling
+          density waves. None of these patterns were programmed in. They
+          emerge from local interactions between filaments that, on their
+          own, know nothing about global structure.
+        </p>
+        <p>
+          The model running above is a continuous variant of the
+          <a class="inline" href="https://en.wikipedia.org/wiki/Vicsek_model">Vicsek model</a> — the simplest setup that
+          produces this kind of
+          behavior. Each filament has a position and an orientation. At every
+          step, it averages the orientations of its neighbors within a small
+          radius, rotates partway toward that mean, adds a little noise, and
+          moves forward at a constant speed. That's the entire rule set, and
+          it's enough to recover most of what Schaller and colleagues observed.
+        </p>
+        <p>
+          One of the most interesting aspects of this model is its phase diagram. With density and
+          alignment both high and noise low, the system locks into traveling
+          bands. If your drop the density, the bands will break into mobile swarms.
+          Drop alignment toward zero and the system disorders, regardless of
+          density (which is the whole point of the <em>No alignment</em>
+          preset). The order parameter readout (<em>|⟨v⟩|/v₀</em>) tracks how
+          aligned the population is at any moment, and the phase tag in the
+          readout panel uses a rough heuristic on density and order to put a
+          name on what you're looking at.
+        </p>
+
+        <h2>Why this is here.</h2>
+        <p>
+          This was one of the first papers I read closely as a young
+          researcher; I'm still finding threads of it in the work I do.
+          I had started a project working with semiflexible polymer
+          networks during graduate school, examining the local forces associated
+          with an actin gradient, and although that line of research got cut short before it could
+          really go anywhere, the underlying interest never went away.
+        </p>
+        <p>
+          What stuck with me from the Schaller paper, and from this whole
+          family of active-matter problems, is the idea that there can be a higher level
+          of description beyond the molecular one. You can know
+          everything about a single filament and still not predict what a
+          dish full of filaments will do. The collective behavior is its own
+          object of study, with its own rules, and it depends on
+          parameters that don't show up in any individual particle's
+          equations. That observation, that systems sometimes have to be
+          understood at the level where the pattern lives, became the
+          throughline for much of what I've worked on since: stochastic
+          modeling of cell-fate decisions in cancer, transcriptomic
+          analyses, the kind of problems where averaging can obscure the underlying dynamics.
+        </p>
+        <p>
+          I built the simulator above as a way to revisit the original
+          question with the tools I have now. It's small, it's in the
+          browser, and it's not trying to be a research result. But every
+          time I run it and see bands form out of nothing, I'm reminded of
+          how weird and interesting system behavior can be.
+        </p>
+
+        <p style="margin-top: 2.5rem;">
+          <a class="btn" href="../projects.html">← back to projects</a>
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <div class="colophon">
+        <strong>In Aggregate</strong> · the simulator runs entirely in your
+        browser. Source is at the bottom of this file; copy any of it for
+        teaching or experiments.
+      </div>
+      <div class="links">
+        <a href="../projects.html">← projects</a>
+        <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/main.js"></script>
+
+  <!-- ============================================================
+       Simulation + renderer + UI controller
+       Vicsek-style polar self-propelled particle model.
+       Each filament has (x, y, theta). At each step it averages
+       the orientations of neighbors within radius R (= L), rotates
+       toward that mean by alpha, and adds angular noise eta.
+       ============================================================ -->
+  <script>
+    'use strict';
+
+    class Sim {
+      constructor() {
+        this.W = 800;
+        this.H = 800;
+        this.params = {
+          N: 2400,
+          alpha: 0.70,
+          L: 12,
+          noise: 0.22,
+          v0: 1.0,
+        };
+        this.particles = []; // [x, y, theta]
+        this.step_ = 0;
+        this.reset();
+      }
+
+      reset() {
+        this.particles = [];
+        for (let i = 0; i < this.params.N; i++) {
+          this.particles.push([
+            Math.random() * this.W,
+            Math.random() * this.H,
+            Math.random() * 2 * Math.PI,
+          ]);
+        }
+        this.step_ = 0;
+      }
+
+      setN(N) {
+        N = Math.max(0, Math.floor(N));
+        const cur = this.particles.length;
+        if (N > cur) {
+          for (let i = cur; i < N; i++) {
+            this.particles.push([
+              Math.random() * this.W,
+              Math.random() * this.H,
+              Math.random() * 2 * Math.PI,
+            ]);
+          }
+        } else if (N < cur) {
+          this.particles.length = N;
+        }
+        this.params.N = N;
+      }
+
+      step() {
+        const P = this.particles;
+        const W = this.W, H = this.H;
+        const halfW = W / 2, halfH = H / 2;
+        const R = this.params.L;
+        const R2 = R * R;
+        const cell = Math.max(R, 4);
+        const cols = Math.max(1, Math.floor(W / cell));
+        const rows = Math.max(1, Math.floor(H / cell));
+
+        const grid = new Array(cols * rows);
+        for (let i = 0; i < grid.length; i++) grid[i] = [];
+        for (let i = 0; i < P.length; i++) {
+          const cx = ((Math.floor(P[i][0] / cell) % cols) + cols) % cols;
+          const cy = ((Math.floor(P[i][1] / cell) % rows) + rows) % rows;
+          grid[cy * cols + cx].push(i);
+        }
+
+        const alpha = this.params.alpha;
+        const noise = this.params.noise;
+        const v0 = this.params.v0;
+        const newTheta = new Float64Array(P.length);
+
+        for (let i = 0; i < P.length; i++) {
+          const px = P[i][0], py = P[i][1], pt = P[i][2];
+          const cx = Math.floor(px / cell);
+          const cy = Math.floor(py / cell);
+
+          let sumSin = Math.sin(pt);
+          let sumCos = Math.cos(pt);
+
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              const ncx = ((cx + dx) % cols + cols) % cols;
+              const ncy = ((cy + dy) % rows + rows) % rows;
+              const bin = grid[ncy * cols + ncx];
+              for (let k = 0; k < bin.length; k++) {
+                const j = bin[k];
+                if (j === i) continue;
+                let ddx = P[j][0] - px;
+                let ddy = P[j][1] - py;
+                if (ddx > halfW) ddx -= W; else if (ddx < -halfW) ddx += W;
+                if (ddy > halfH) ddy -= H; else if (ddy < -halfH) ddy += H;
+                if (ddx * ddx + ddy * ddy < R2) {
+                  sumSin += Math.sin(P[j][2]);
+                  sumCos += Math.cos(P[j][2]);
+                }
+              }
+            }
+          }
+
+          const meanTheta = Math.atan2(sumSin, sumCos);
+          const diff = Math.atan2(Math.sin(meanTheta - pt), Math.cos(meanTheta - pt));
+          newTheta[i] = pt + alpha * diff + noise * (Math.random() - 0.5) * 2;
+        }
+
+        for (let i = 0; i < P.length; i++) {
+          const t = newTheta[i];
+          P[i][2] = t;
+          P[i][0] += v0 * Math.cos(t);
+          P[i][1] += v0 * Math.sin(t);
+          if (P[i][0] < 0) P[i][0] += W; else if (P[i][0] >= W) P[i][0] -= W;
+          if (P[i][1] < 0) P[i][1] += H; else if (P[i][1] >= H) P[i][1] -= H;
+        }
+
+        this.step_++;
+      }
+
+      polarOrder() {
+        const P = this.particles;
+        if (P.length === 0) return 0;
+        let sx = 0, sy = 0;
+        for (let i = 0; i < P.length; i++) {
+          sx += Math.cos(P[i][2]);
+          sy += Math.sin(P[i][2]);
+        }
+        return Math.sqrt(sx * sx + sy * sy) / P.length;
+      }
+    }
+
+    class Renderer {
+      constructor(sim, canvas) {
+        this.sim = sim;
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.mode = 'filaments';
+        this.densityCanvas = document.createElement('canvas');
+        this.densityCtx = this.densityCanvas.getContext('2d');
+      }
+
+      resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = this.canvas.getBoundingClientRect();
+        this.canvas.width = Math.floor(rect.width * dpr);
+        this.canvas.height = Math.floor(rect.height * dpr);
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(this.canvas.width / this.sim.W, this.canvas.height / this.sim.H);
+        this._scaleX = this.canvas.width / this.sim.W;
+      }
+
+      draw() {
+        if (this.mode === 'filaments') this.drawFilaments();
+        else if (this.mode === 'density') this.drawDensity();
+        else if (this.mode === 'orientation') this.drawOrientation();
+      }
+
+      drawFilaments() {
+        const ctx = this.ctx;
+        const sim = this.sim;
+        ctx.fillStyle = 'rgba(4, 5, 6, 0.55)';
+        ctx.fillRect(0, 0, sim.W, sim.H);
+
+        const L = sim.params.L;
+        const halfL = L * 0.5;
+        ctx.lineWidth = 1.0;
+        ctx.lineCap = 'round';
+
+        const buckets = 18;
+        const groups = new Array(buckets);
+        for (let i = 0; i < buckets; i++) groups[i] = [];
+        const P = sim.particles;
+        for (let i = 0; i < P.length; i++) {
+          const t = P[i][2];
+          let b = Math.floor(((t / (2 * Math.PI)) + 0.5) * buckets) % buckets;
+          if (b < 0) b += buckets;
+          groups[b].push(i);
+        }
+        for (let b = 0; b < buckets; b++) {
+          const hue = (b + 0.5) * (360 / buckets);
+          ctx.strokeStyle = `hsl(${hue}, 78%, 62%)`;
+          ctx.beginPath();
+          const g = groups[b];
+          for (let k = 0; k < g.length; k++) {
+            const p = P[g[k]];
+            const cx = Math.cos(p[2]) * halfL;
+            const cy = Math.sin(p[2]) * halfL;
+            ctx.moveTo(p[0] - cx, p[1] - cy);
+            ctx.lineTo(p[0] + cx, p[1] + cy);
+          }
+          ctx.stroke();
+        }
+      }
+
+      drawDensity() {
+        const ctx = this.ctx;
+        const sim = this.sim;
+        ctx.fillStyle = '#040506';
+        ctx.fillRect(0, 0, sim.W, sim.H);
+
+        const cell = 8;
+        const cols = Math.ceil(sim.W / cell);
+        const rows = Math.ceil(sim.H / cell);
+        const counts = new Uint16Array(cols * rows);
+        const P = sim.particles;
+        for (let i = 0; i < P.length; i++) {
+          const cx = Math.floor(P[i][0] / cell);
+          const cy = Math.floor(P[i][1] / cell);
+          if (cx >= 0 && cx < cols && cy >= 0 && cy < rows) {
+            counts[cy * cols + cx]++;
+          }
+        }
+        let maxC = 1;
+        for (let i = 0; i < counts.length; i++) if (counts[i] > maxC) maxC = counts[i];
+
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const v = counts[y * cols + x] / maxC;
+            if (v <= 0) continue;
+            const t = Math.pow(v, 0.7);
+            const r = Math.floor(255 * Math.min(1, 0.05 + 1.4 * t));
+            const g = Math.floor(255 * Math.min(1, 0.03 + 1.0 * t));
+            const b = Math.floor(255 * Math.min(1, 0.18 + 0.6 * (1 - t)));
+            ctx.fillStyle = `rgb(${r},${g},${b})`;
+            ctx.fillRect(x * cell, y * cell, cell, cell);
+          }
+        }
+      }
+
+      drawOrientation() {
+        const ctx = this.ctx;
+        const sim = this.sim;
+        ctx.fillStyle = '#040506';
+        ctx.fillRect(0, 0, sim.W, sim.H);
+
+        const cell = 16;
+        const cols = Math.ceil(sim.W / cell);
+        const rows = Math.ceil(sim.H / cell);
+        const sumS = new Float32Array(cols * rows);
+        const sumC = new Float32Array(cols * rows);
+        const cnt = new Uint16Array(cols * rows);
+
+        const P = sim.particles;
+        for (let i = 0; i < P.length; i++) {
+          const cx = Math.floor(P[i][0] / cell);
+          const cy = Math.floor(P[i][1] / cell);
+          const idx = cy * cols + cx;
+          if (cx >= 0 && cx < cols && cy >= 0 && cy < rows) {
+            sumS[idx] += Math.sin(P[i][2]);
+            sumC[idx] += Math.cos(P[i][2]);
+            cnt[idx]++;
+          }
+        }
+
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const idx = y * cols + x;
+            const c = cnt[idx];
+            if (c === 0) continue;
+            const mag = Math.sqrt(sumS[idx] * sumS[idx] + sumC[idx] * sumC[idx]) / c;
+            const theta = Math.atan2(sumS[idx], sumC[idx]);
+            const hue = ((theta / (2 * Math.PI)) + 0.5) * 360;
+            const sat = 70 * mag;
+            const lit = 8 + 12 * mag;
+            ctx.fillStyle = `hsl(${hue}, ${sat}%, ${lit}%)`;
+            ctx.fillRect(x * cell, y * cell, cell, cell);
+          }
+        }
+
+        ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+        ctx.lineWidth = 0.8;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const idx = y * cols + x;
+            const c = cnt[idx];
+            if (c < 2) continue;
+            const mag = Math.sqrt(sumS[idx] * sumS[idx] + sumC[idx] * sumC[idx]) / c;
+            if (mag < 0.15) continue;
+            const theta = Math.atan2(sumS[idx], sumC[idx]);
+            const cx0 = x * cell + cell * 0.5;
+            const cy0 = y * cell + cell * 0.5;
+            const len = (cell * 0.45) * mag;
+            ctx.moveTo(cx0 - Math.cos(theta) * len, cy0 - Math.sin(theta) * len);
+            ctx.lineTo(cx0 + Math.cos(theta) * len, cy0 + Math.sin(theta) * len);
+          }
+        }
+        ctx.stroke();
+      }
+    }
+
+    // ─── controller ────────────────────────────────────────────────
+    const sim = new Sim();
+    const canvas = document.getElementById('canvas');
+    const renderer = new Renderer(sim, canvas);
+
+    const $ = (id) => document.getElementById(id);
+    const fmt = (x, d = 2) => Number(x).toFixed(d);
+
+    function syncReadouts() {
+      const p = sim.params;
+      $('vN').textContent = String(p.N);
+      $('vAlpha').textContent = fmt(p.alpha, 2);
+      $('vL').textContent = String(p.L);
+      $('vNoise').textContent = fmt(p.noise, 2);
+      $('vV0').textContent = fmt(p.v0, 2);
+
+      $('cornerN').textContent = String(p.N);
+
+      const phi = sim.polarOrder();
+      $('rOrder').textContent = fmt(phi, 3);
+      $('cornerOrder').textContent = fmt(phi, 3);
+
+      const dens = (p.N * p.L * p.L) / (sim.W * sim.H);
+      $('rDensity').innerHTML = fmt(dens, 2);
+
+      $('rStep').textContent = String(sim.step_);
+
+      let phase = '—';
+      if (dens < 0.25 || phi < 0.2) phase = 'disordered';
+      else if (phi >= 0.55 && dens >= 0.55) phase = 'density waves';
+      else if (phi >= 0.3) phase = 'swarms';
+      else phase = 'mixed';
+      $('rPhase').textContent = phase;
+      const cornerOrder = $('cornerOrder');
+      cornerOrder.classList.toggle('warn', phi > 0.55);
+    }
+
+    function bind(id, key, parseFn = parseFloat, postFn = null) {
+      const el = $(id);
+      el.addEventListener('input', () => {
+        sim.params[key] = parseFn(el.value);
+        if (postFn) postFn();
+        syncReadouts();
+      });
+    }
+    bind('sAlpha', 'alpha');
+    bind('sL', 'L', (v) => parseInt(v, 10));
+    bind('sNoise', 'noise');
+    bind('sV0', 'v0');
+    $('sN').addEventListener('input', () => {
+      sim.setN(parseInt($('sN').value, 10));
+      syncReadouts();
+    });
+
+    document.querySelectorAll('#motility-frame .m-toggle-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#motility-frame .m-toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderer.mode = btn.dataset.mode;
+        renderer.ctx.fillStyle = '#040506';
+        renderer.ctx.fillRect(0, 0, sim.W, sim.H);
+      });
+    });
+
+    let paused = false;
+    $('btnPause').addEventListener('click', () => {
+      paused = !paused;
+      $('btnPause').textContent = paused ? 'Resume' : 'Pause';
+      $('cornerStatus').textContent = paused ? 'paused' : 'running';
+    });
+    $('btnReset').addEventListener('click', () => {
+      sim.reset();
+      renderer.ctx.fillStyle = '#040506';
+      renderer.ctx.fillRect(0, 0, sim.W, sim.H);
+      syncReadouts();
+    });
+
+    const PRESETS = {
+      quiescent: { N: 600, alpha: 0.55, L: 12, noise: 0.45, v0: 1.0 },
+      swarms: { N: 1800, alpha: 0.70, L: 12, noise: 0.30, v0: 1.0 },
+      bands: { N: 3500, alpha: 0.85, L: 12, noise: 0.18, v0: 1.0 },
+      nematic: { N: 4000, alpha: 0.00, L: 12, noise: 0.20, v0: 1.0 },
+    };
+    function applyPreset(name) {
+      const p = PRESETS[name]; if (!p) return;
+      sim.setN(p.N);
+      sim.params.alpha = p.alpha;
+      sim.params.L = p.L;
+      sim.params.noise = p.noise;
+      sim.params.v0 = p.v0;
+      $('sN').value = p.N;
+      $('sAlpha').value = p.alpha;
+      $('sL').value = p.L;
+      $('sNoise').value = p.noise;
+      $('sV0').value = p.v0;
+      sim.reset();
+      renderer.ctx.fillStyle = '#040506';
+      renderer.ctx.fillRect(0, 0, sim.W, sim.H);
+      syncReadouts();
+    }
+    document.querySelectorAll('#motility-frame [data-preset]').forEach((btn) => {
+      btn.addEventListener('click', () => applyPreset(btn.dataset.preset));
+    });
+
+    let lastT = performance.now();
+    let frames = 0;
+    let fpsAcc = 0;
+
+    function fitCanvas() {
+      renderer.resize();
+    }
+    const ro = new ResizeObserver(fitCanvas);
+    ro.observe(document.querySelector('#motility-frame .m-stage'));
+    fitCanvas();
+
+    renderer.ctx.fillStyle = '#040506';
+    renderer.ctx.fillRect(0, 0, sim.W, sim.H);
+
+    function tick() {
+      const now = performance.now();
+      const dt = now - lastT;
+      lastT = now;
+      fpsAcc = fpsAcc * 0.9 + (1000 / Math.max(1, dt)) * 0.1;
+      frames++;
+      if (frames % 15 === 0) {
+        $('cornerFps').textContent = String(Math.round(fpsAcc));
+      }
+
+      if (!paused) {
+        sim.step();
+        sim.step();
+      }
+      renderer.draw();
+      if (frames % 6 === 0) syncReadouts();
+      requestAnimationFrame(tick);
+    }
+
+    syncReadouts();
+    requestAnimationFrame(tick);
+  </script>
+</body>
+
+</html>
