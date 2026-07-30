@@ -19,7 +19,7 @@
   <div class="shell">
     <nav class="top">
       <div class="mark"><a href="../index.html"><span class="dot"></span>In<em>·</em>Aggregate</a><span
-          class="tagline">A personal site for projects, writing, and things I'm currently working on.</span></div>
+          class="tagline">A personal site for projects, writing, and things I haven't finished yet.</span></div>
       <ul>
         <li><a href="../index.html">index</a></li>
         <li><a href="../projects.html">projects</a></li>
@@ -37,19 +37,18 @@
 
         <p class="lede reveal d1">
           Two genetically identical cells, sitting next to each other in the same
-          dish, given the same concentration ofdrug, can do completely different things. One dies.
-          One divides.
+          dish, given the same concentration of the same drug, can do completely
+          different things. One dies. One divides.
         </p>
 
         <h2>The problem with averages</h2>
         <p>
           When you train as a biologist, you start to think about pathways as
-          arrows on a slide. <em>A receptor activates a kinase. A kinase, in turn, phosphorylates
-            a transcription factor. That transcription factor enters the nucleus.</em> The
-          natural mathematical representation of this process is an <strong>ordinary
-            differential equation</strong> where concentrations (usually) evolve smoothly, the
-          system has a steady state, and given the same inputs, you always get
-          the same outputs.
+          arrows on a slide. <em>A receptor activates a kinase. The kinase phosphorylates
+            a transcription factor. The transcription factor enters the nucleus.</em> The
+          natural way to write that down is an <strong>ordinary differential
+            equation</strong>: concentrations evolve smoothly, the system settles into a
+          steady state, and the same inputs always give you the same outputs.
         </p>
         <p>
           That picture is correct on average. The problem is that biology, at
@@ -66,9 +65,8 @@
           Stochastic chemical kinetics replaces the smooth flow of concentrations
           with a sequence of discrete reaction events. The
           <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie
-            algorithm</a> can be used to represent the signaling. At each step, given the current state,
-          you ask "what's the probability that any reaction fires in the next
-          tiny window of time?".
+            algorithm</a> does this exactly, without approximation. At each step you take the
+          current state and ask which reaction fires next, and how long you wait for it.
         </p>
 
         <pre><code># the loop, conceptually
@@ -83,10 +81,18 @@ for run in range(N):
         <h2>Where this changes the answer</h2>
         <p>
           In the lung-cancer work I did at Vanderbilt, the deterministic version
-          of the model tells you that at high enough drug concentration,
-          all cells stop dividing. The stochastic version gives you the insight that
-          a small but real fraction of cells slip through the cell-cycle checkpoint
-          anyway, and once they do, they can divide before apoptosis occurs.
+          of the model says that at high enough drug concentration, all cells stop
+          dividing. The stochastic version says a small but real fraction slip
+          through the cell-cycle checkpoint anyway, and once they do, they can
+          divide before apoptosis catches them.
+        </p>
+
+        <p>
+          The deterministic model answers a real question, and answers it well:
+          where does the population end up on average. The stochastic model
+          answers a different one. It tells you how many cells escape that
+          average, and in a disease where the survivors are most of the problem,
+          that's the number I care about.
         </p>
 
         <p>
@@ -105,7 +111,7 @@ for run in range(N):
 
     <footer>
       <div class="colophon">
-        <strong>In Aggregate</strong> · written and signed by Austin Oleskie.
+        <strong>In Aggregate</strong> · written by Austin Oleskie.
       </div>
       <div class="links">
         <a href="index.html">← all posts</a>

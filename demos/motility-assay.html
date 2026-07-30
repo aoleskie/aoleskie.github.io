@@ -500,11 +500,11 @@
         </header>
 
         <p class="lede reveal d1">
-          A simulated high-density actin motility assay where thousands of
-          self-propelled filaments, each gliding gently toward its neighbors
-          with a little angular noise, are enough to produce the patterns
-          observed in the lab — moving swarms, traveling density waves, and
-          a disorganized state.
+          A simulated high-density actin motility assay. Thousands of
+          self-propelled filaments, each turning gently toward its neighbors
+          with a little angular noise, are enough to reproduce what shows up
+          in the lab: moving swarms, traveling density waves, and a state with
+          no order in it at all.
         </p>
 
         <!-- ============================================================
@@ -644,7 +644,7 @@
                     disordered regions look like static.</p>
                   <span class="m-swatch"></span>
                   <p><strong>What to try.</strong> Start with <em>Density waves</em>, watch bands form (~30s). Then drop
-                    α toward zero — order collapses. Crank noise up — same. Drop N — bands break into swarms.</p>
+                    α toward zero: order collapses. Crank noise up: same. Drop N: bands break into swarms.</p>
                 </div>
               </section>
 
@@ -662,20 +662,19 @@
              ============================================================ -->
         <h2>The science.</h2>
         <p>
-          The original reference is <a class="inline" href="https://www.nature.com/articles/nature09312" target="_blank"
-            rel="noopener">Schaller et al., <em>Nature</em> 2010</a> covering a high-density actin motility assay where
-          actin filaments were
+          The original experiment is <a class="inline" href="https://www.nature.com/articles/nature09312"
+            target="_blank" rel="noopener">Schaller et al., <em>Nature</em> 2010</a>: actin filaments
           propelled across a surface coated with myosin motors. At low
           density, the filaments wander around and occasionally align with their neighbors.
-          As density is increased, they spontaneously organize into swarms, vortices, and traveling
+          Raise the density and they organize into swarms, vortices, and traveling
           density waves. None of these patterns were programmed in. They
           emerge from local interactions between filaments that, on their
           own, know nothing about global structure.
         </p>
         <p>
           The model running above is a continuous variant of the
-          <a class="inline" href="https://en.wikipedia.org/wiki/Vicsek_model">Vicsek model</a> — the simplest setup that
-          produces this kind of
+          <a class="inline" href="https://en.wikipedia.org/wiki/Vicsek_model">Vicsek model</a>, which is
+          about the simplest setup that produces this kind of
           behavior. Each filament has a position and an orientation. At every
           step, it averages the orientations of its neighbors within a small
           radius, rotates partway toward that mean, adds a little noise, and
@@ -683,9 +682,9 @@
           it's enough to recover most of what Schaller and colleagues observed.
         </p>
         <p>
-          One of the most interesting aspects of this model is its phase diagram. With density and
+          The phase diagram is the interesting part. With density and
           alignment both high and noise low, the system locks into traveling
-          bands. If your drop the density, the bands will break into mobile swarms.
+          bands. Drop the density and the bands break into mobile swarms.
           Drop alignment toward zero and the system disorders, regardless of
           density (which is the whole point of the <em>No alignment</em>
           preset). The order parameter readout (<em>|⟨v⟩|/v₀</em>) tracks how
@@ -697,16 +696,15 @@
         <h2>Why this is here.</h2>
         <p>
           This was one of the first papers I read closely as a young
-          researcher; I'm still finding threads of it in the work I do.
-          I had started a project working with semiflexible polymer
-          networks during graduate school, examining the local forces associated
-          with an actin gradient, and although that line of research got cut short before it could
-          really go anywhere, the underlying interest never went away.
+          researcher, and I'm still finding threads of it in what I do.
+          During graduate school I started a project on semiflexible polymer
+          networks, looking at the local forces inside an actin gradient.
+          That line of work got cut short; the interest didn't.
         </p>
         <p>
           What stuck with me from the Schaller paper, and from this whole
-          family of active-matter problems, is the idea that there can be a higher level
-          of description beyond the molecular one. You can know
+          family of active-matter problems, is that there's a level of
+          description above the molecular one. You can know
           everything about a single filament and still not predict what a
           dish full of filaments will do. The collective behavior is its own
           object of study, with its own rules, and it depends on
