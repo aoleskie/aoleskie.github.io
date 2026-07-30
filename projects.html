@@ -19,7 +19,7 @@
   <div class="shell">
     <nav class="top">
       <div class="mark"><a href="index.html"><span class="dot"></span>In<em>·</em>Aggregate</a><span class="tagline">A
-          personal site for projects, writing, and things I'm currently working on.</span></div>
+          personal site for projects, writing, and things I haven't finished yet.</span></div>
       <ul>
         <li><a href="index.html">index</a></li>
         <li><a href="projects.html" class="active">projects</a></li>
@@ -35,11 +35,9 @@
           <span class="last">and completed projects</span>
         </h1>
         <p class="lede reveal d2">
-          This is a list of longer writeups I've done from work at the bench and away
-          from it. The projects are sorted into four categories:
-          peer-reviewed research, data analyses I've taken on
-          for my own curiosity, small tools I've built, and a fun
-          reading project. They can be filtered by what you're interested in.
+          Longer writeups from work at the bench and away from it, in four categories:
+          peer-reviewed research, data projects I picked up out of curiosity, small tools
+          I've built, and one very slow reading project. Filter by whatever you came for.
         </p>
       </section>
 
@@ -81,7 +79,7 @@
           <a class="card" data-category="research" href="#em">
             <span class="status-badge" data-status="done">done</span>
             <span class="tag">structural biology · em</span>
-            <h3>Arrestin recruitment, by EM</h3>
+            <h3>Arrestin recruitment to a GPCR</h3>
             <p>Earlier work in the Skiniotis lab visualizing arrestin recruitment
               to a GPCR. Published in <em>Nature</em>, 2014.</p>
             <span class="arrow">read writeup</span>
@@ -155,8 +153,8 @@
             <span class="tag">interactive · javascript</span>
             <h3>Polar filament patterns</h3>
             <p>An in-browser Vicsek-style simulator after Schaller et al.,
-              <em>Nature</em> 2010 and an early thread that runs through the
-              rest of my work.
+              <em>Nature</em> 2010. The paper is an early thread running through
+              the rest of my work.
             </p>
             <span class="arrow">play with it</span>
           </a>
@@ -210,16 +208,15 @@
           of my postdoc on was <em>why</em>.
         </p>
         <p>
-          The approach we employed was a stochastic, mechanistic model of the cell-fate
-          decision built in <code>PySB</code>, parameterized with in-vitro
-          measurements of mitotic time, quiescence, and death, and run across
-          thousands of <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie</a>
-          trajectories per condition. Using a deterministic model of the same
-          network we miss something important, averaged over a population, the
-          cells looked uniformly suppressed by the drug. But the stochastic
-          version shows that a small fraction are slipping into a
-          fast-dividing state and proliferating from there. That fraction is
-          small, but it's also a meaningful piece of why the drug isn't
+          We built a stochastic, mechanistic model of the cell-fate decision in
+          <code>PySB</code>, parameterized it with in-vitro measurements of mitotic
+          time, quiescence, and death, and ran it across thousands of
+          <a class="inline" href="https://en.wikipedia.org/wiki/Gillespie_algorithm">Gillespie</a>
+          trajectories per condition. A deterministic model of the same network
+          misses what matters here; averaged over a population, the cells look
+          uniformly suppressed by the drug. The stochastic version shows a small
+          fraction slipping into a fast-dividing state and proliferating from
+          there. Small, but enough to account for part of why the drug isn't
           curative on its own.
         </p>
 
@@ -276,21 +273,20 @@ net <- blockwiseModules(
       <!-- ─── em ─── -->
       <section id="em">
         <div class="eyebrow">research · 03</div>
-        <h2><em>Arrestin recruitment,</em> visualized.</h2>
+        <h2><em>A structure</em> of arrestin bound to a receptor.</h2>
         <p>
           Before the modeling work, I spent two years in the Skiniotis lab at
           Michigan, learning electron microscopy and collecting micrographs
-          of protein assemblies. Some of the work the work from that period
-          is a structure of a
+          of protein assemblies. The best-known piece from that period is a
+          structure of a
           <a class="inline" href="https://www.nature.com/articles/nature13430">GPCR–arrestin complex</a>
-          that helped in our understanding of how arrestin gets
-          recruited to a G-protein coupled receptor. It came out in
-          <em>Nature</em> in 2014.
+          that added to our picture of how arrestin gets recruited to a
+          G-protein coupled receptor. It came out in <em>Nature</em> in 2014.
         </p>
         <p>
-          Other work included a collaboration with the
-          Ginsburg lab visualizing factor VIII bound to von Willebrand factor,
-          and the Fuller lab to visualize the architecture of VPS13.
+          There were other collaborations too: examining factor VIII bound to
+          von Willebrand factor with the Ginsburg lab, and working out the
+          architecture of VPS13 with the Fuller lab.
         </p>
       </section>
 
@@ -302,14 +298,13 @@ net <- blockwiseModules(
         <h2><em>Biotech funding</em> patterns.</h2>
         <p>
           A side project that started because I was curious how funding patterns
-          affect the overall biotech job market. The
-          pipeline pulls NIH grant allocations from RePORTER, IPO and S-1
-          filings from SEC EDGAR, venture-funding data where I can get it
-          cleanly, and state-level WARN data, and stitches everything into something where year-over-year
-          shifts in biotech subsectors can be visible.
+          move the biotech job market. The pipeline pulls NIH grant allocations
+          from RePORTER, IPO and S-1 filings from SEC EDGAR, venture-funding data
+          where I can get it cleanly, and state-level WARN notices, then stitches
+          them together so year-over-year shifts across subsectors are visible.
         </p>
         <p>
-          A writeup is forthcoming.
+          No writeup yet.
         </p>
       </section>
 
@@ -326,7 +321,7 @@ net <- blockwiseModules(
           filings (DEF 14A).
         </p>
         <p>
-          A writeup is forthcoming.
+          Also no writeup yet.
         </p>
       </section>
 
@@ -385,15 +380,13 @@ net <- blockwiseModules(
         </p>
         <p>
           The current pipeline is a proof of concept rather than a deployable
-          tool. The places I'd want to take it next are expanding the
-          candidate pool through structure-similarity search, weighting the
-          scoring function by the volume and quality of the supporting
-          literature, and using the off-target data the pipeline already
-          pulls to penalize compounds with bad selectivity profiles. The
-          structure of the pipeline (pull the target, pull the ligands,
-          score, enrich the top hits) is target-agnostic, and pointing it
-          at a different receptor would let the same five stages run
-          unchanged.
+          tool. If I pick it back up, I'd expand the candidate pool with a
+          structure-similarity search, weight the scoring function by the volume
+          and quality of the supporting literature, and use the off-target data
+          the pipeline already pulls to penalize compounds with bad selectivity
+          profiles. The shape of the thing (pull the target, pull the ligands,
+          score, enrich the top hits) is target-agnostic, so pointing it at a
+          different receptor should let the same five stages run unchanged.
         </p>
         <p>
           <a class="btn primary" href="https://github.com/aoleskie/SignalScreen" target="_blank" rel="noopener">view on
@@ -428,10 +421,8 @@ net <- blockwiseModules(
         <div class="eyebrow">tools · 04</div>
         <h2><em>An interactive</em> two-state switch.</h2>
         <p>
-          A simple visualization of a stochastic process. A tiny in-browser stochastic simulator with two states,
-          forward and
-          reverse rates, and a population of independent cells you can push
-          around sliders.
+          A tiny in-browser simulator: two states, a forward and a reverse rate,
+          and a population of independent cells you can push around with sliders.
         </p>
         <p>
           <a class="btn primary" href="demos/two-state-switch.html">open the demo →</a>
@@ -449,22 +440,19 @@ net <- blockwiseModules(
           motility assay, after
           <a class="inline" href="https://www.nature.com/articles/nature09312" target="_blank" rel="noopener">Schaller
             et al., <em>Nature</em> 2010</a>.
-          Thousands of self-propelled filaments interacting through a simple
-          local alignment rule showing the emergence of moving swarms, traveling
-          density waves, or disorder, depending on a handful of
-          parameters.
+          Thousands of self-propelled filaments follow one local alignment rule,
+          and depending on a handful of parameters you get moving swarms,
+          traveling density waves, or nothing but disorder.
         </p>
         <p>
-          The Schaller paper was one of the first papers I read closely as a
-          young researcher, and although I didn't realize it at the time, it
-          shaped almost everything I've worked on since. I started a
-          graduate-school project on actin networks that was
-          asking related questions, examining local forces within an actin gradient,
-          and although that line of research got cut short, the
-          underlying interest never went away. I built the simulator partly to revisit the
-          original question with the tools I have now, and partly because it
-          still produces the most striking emergent behavior I've ever
-          watched come out of a few lines of code.
+          The Schaller paper was one of the first I read closely as a young
+          researcher, and without realizing it at the time, I've been circling
+          its questions ever since. I started a graduate-school project on actin
+          networks asking related things about local forces inside an actin
+          gradient. That line of work got cut short; the interest didn't. I built
+          the simulator partly to revisit the original question with the tools I
+          have now, and partly because it still produces the most striking
+          emergent behavior I've ever watched come out of a few lines of code.
         </p>
         <p>
           <a class="btn primary" href="demos/motility-assay.html">open the demo →</a>
@@ -478,8 +466,8 @@ net <- blockwiseModules(
         <div class="eyebrow">reading · 01</div>
         <h2><em>A book</em> from every country.</h2>
         <p>
-          This is a project where I'm reading at least one book by an author from every
-          country in the world. Part of the fun has been the research building the
+          I'm reading at least one book by an author from every country in the
+          world. Half the fun has been the research that went into building the
           list in the first place. Once I'm done, maybe I'll start again.
         </p>
         <p>
@@ -496,7 +484,7 @@ net <- blockwiseModules(
       <div class="colophon">
         <strong>In Aggregate</strong> · these writeups are mine; collaborators
         on the published work are credited in the linked papers. Last updated
-        April 2026.
+        July 2026.
       </div>
       <div class="links">
         <a href="mailto:oleskiea@gmail.com">oleskiea@gmail.com</a>
