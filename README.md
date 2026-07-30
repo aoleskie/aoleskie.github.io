@@ -27,7 +27,6 @@ easy to edit by hand, and will still work in fifteen years.
 │       └── world-50m.json      Natural Earth world map TopoJSON
 ├── assets/
 │   ├── style.css               the design system
-│   ├── main.js                 stochastic particle background
 │   ├── projects.js             category filter for the projects page
 │   ├── d3.min.js               D3 v7, bundled locally
 │   └── topojson-client.min.js  topojson-client v3, bundled locally
@@ -79,10 +78,6 @@ consistent for me. So far, that's been worth it.
   (representing dual-channel fluorescence microscopy in my
   research, red / green was feeling a little too Christmas), and highlighter yellow as a tertiary used for inline
   emphasis and the "featured" tape on project cards.
-- **Background.** A small stochastic particle field — about forty
-  particles doing a damped Brownian random walk, with faint lines between
-  nearby pairs. A visual reference to the kind of work the rest of the
-  site is about. Respects `prefers-reduced-motion`.
 - **Texture.** A subtle SVG noise grain layered above the background
   gives the page a paper-stock feel without being distracting.
 - **Layout.** Asymmetric hero with the last name set in italic and
@@ -125,8 +120,7 @@ you're forking this, search-and-replace those.
 
 **Tweak the palette.** The `:root` block at the top of `assets/style.css`
 is the entire color and type system. Changing `--magenta` and `--teal` will
-ripple through the whole site, including the particle background and the
-reading map.
+ripple through the whole site, including the reading map.
 
 **Add a project.** In `projects.html`, the cards live in
 `<div class="grid-projects">` blocks under each category heading. Copy any
